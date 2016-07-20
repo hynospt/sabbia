@@ -8,13 +8,10 @@
     <link rel="stylesheet" href="css/reset.css">
 
     <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'>
-<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Montserrat:400,700'>
-<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+    <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Montserrat:400,700'>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
 
-        <link rel="stylesheet" href="{{url('assets')}}/css/login/style.css">
-
-    
-    
+    <link rel="stylesheet" href="{{url('assets')}}/css/login/style.css">
     
   </head>
 
@@ -23,8 +20,15 @@
     
 <div class="container">
   <div class="info">
+
+<?php if(!isset($message)) $message =""; ?>
+
+@if($message)
+  <span class="error">{{ $message }}</span>
+@endif
+
+
     <h1>Sabbia Login Form</h1>
-    <!-- <span>Made with <i class="fa fa-heart"></i> by <a href="http://andytran.me">Andy Tran</a></span> -->
   </div>
 </div>
 <div class="form">

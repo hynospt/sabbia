@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Route::get('/login', 'LoginController@index');
 Route::post('/auth/login', 'Auth\AuthController@login');
+Route::get('/auth/logout', 'Auth\AuthController@logout');
 
 Route::group(['as' => 'admin::'], function () {
     Route::get('dashboard', ['as' => 'dashboard', function () {

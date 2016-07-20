@@ -79,11 +79,15 @@ class AuthController extends Controller
 
         if (Auth::attempt(['username' => $username, 'password' => $password]))
         {
-            // return redirect()->intended('dashboard');
+            $loggedOn = Auth::check();
             return redirect('dashboard');
         }else{
-            return redirect('login');
-            ## WITH ERROR
+            return response()->view('login', ['message' => 'incorrect username or password']);
         }
+    }
+
+    public function logout(){
+        Auth::logout();
+        return response()->view('login', ['message' => 'you are not logged in']);
     }
 }
