@@ -21,10 +21,10 @@
 <div class="container">
   <div class="info">
 
-<?php if(!isset($message)) $message =""; ?>
-
-@if($message)
-  <span class="error">{{ $message }}</span>
+@if (session('errMsg'))
+    <div class="alert alert-success">
+        {{ session('errMsg') }}
+    </div>
 @endif
 
 
@@ -41,7 +41,7 @@
     <p class="message">Already registered? <a href="#">Sign In</a></p>
   </form> -->
 
-  {{Form::open(array('url' => 'auth/login', 'method' => 'post'))}}
+  {{Form::open(array('url' => 'login', 'method' => 'post'))}}
     <input type="text" placeholder="username" name="username" />
     <input type="password" placeholder="password" name="password" />
     <button>login</button>

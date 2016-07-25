@@ -4,9 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Auth\AuthController;
 
-class Authenticate
+class Authentication
 {
     /**
      * Handle an incoming request.
@@ -16,16 +16,22 @@ class Authenticate
      * @param  string|null  $guard
      * @return mixed
      */
+
     public function handle($request, Closure $next, $guard = null)
-    {
-        dd(Auth::guard($guard)->guest());
+    {   
+
+        // $user = Auth::user();
+        // dd(Auth::guard($guard)->check());
+        // dd($user);
+        // dd(Auth::guard($guard)->check());
         
-        if (Auth::guard($guard)->guest()) {
-            if ($request->ajax() || $request->wantsJson()) {
-                return response('Unauthorized.', 401);
-            } else {
-                return redirect()->guest('login');
-            }
+        $authController = new AuthController();
+        
+
+        dd($authController);
+
+        if (Auth::guard($guard)->check()) {
+            return redirect('/login');
         }
 
         return $next($request);

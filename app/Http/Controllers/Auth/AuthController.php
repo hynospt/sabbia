@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
 use Auth;
+use Session;
 
 class AuthController extends Controller
 {
@@ -30,16 +31,21 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
-
+    protected $redirectTo = '/dashboard';
+    protected $redirectAfterLogout = '/login';
+    public $guard = 'user';
     /**
      * Create a new authentication controller instance.
      *
      * @return void
      */
     public function __construct()
-    {
+    {   
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+    }
+
+    public function test(){
+        echo "test";
     }
 
     /**
@@ -72,22 +78,13 @@ class AuthController extends Controller
         ]);
     }
 
-    public function login(Request $request){
-        $user = User::all();
-        $username = $request->input('username');
-        $password = $request->input('password');
-
-        if (Auth::attempt(['username' => $username, 'password' => $password]))
-        {
-            $loggedOn = Auth::check();
-            return redirect('dashboard');
-        }else{
-            return response()->view('login', ['message' => 'incorrect username or password']);
-        }
-    }
-
     public function logout(){
         Auth::logout();
-        return response()->view('login', ['message' => 'you are not logged in']);
+        Session::flush();
+        // return response()->view('auth.login');
+    }
+    
+    public function login(Request $request){
+        dd($request->input('email'));
     }
 }
