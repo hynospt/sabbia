@@ -18,9 +18,11 @@ Route::get('/', function () {
 Route::auth();
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/dashboard', function () {
-	    return 'lewat bos';
-	});
+    Route::get('/dashboard', 'DashboardController@index');
+    Route::get('/home/{id}' , 'HomeController@index');
+    Route::get('home/edit/{id}', 'HomeController@edit');
+    Route::post('home/update', 'HomeController@update');
+
 	Route::get('/profile', function () {
 	    return 'profile bos';
 	});

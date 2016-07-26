@@ -1,3 +1,9 @@
+@extends('app')
+
+@section('title')
+Dashboard
+@endsection
+
 @section('body')
   <div class="content-wrapper">
   <!-- Content Header (Page header) -->
