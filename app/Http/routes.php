@@ -15,11 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/auth' , 'CustomAuthController@index');
-Route::post('/login' , 'CustomAuthController@login');
-Route::get('/logout', 'CustomAuthController@logout');
-Route::get('/auth/check', 'CustomAuthController@check');
+Route::auth();
 
-Route::get('user/{id}/{yono}', function ($ids , $nama) {
-    return 'User '.$ids;
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/dashboard', function () {
+	    return 'lewat bos';
+	});
+	Route::get('/profile', function () {
+	    return 'profile bos';
+	});
 });

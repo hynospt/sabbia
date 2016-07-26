@@ -33,7 +33,7 @@ class AuthController extends Controller
      */
     protected $redirectTo = '/dashboard';
     protected $redirectAfterLogout = '/login';
-    public $guard = 'user';
+    // public $guard = 'user';
     /**
      * Create a new authentication controller instance.
      *
@@ -42,10 +42,6 @@ class AuthController extends Controller
     public function __construct()
     {   
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
-    }
-
-    public function test(){
-        echo "test";
     }
 
     /**
@@ -78,13 +74,5 @@ class AuthController extends Controller
         ]);
     }
 
-    public function logout(){
-        Auth::logout();
-        Session::flush();
-        // return response()->view('auth.login');
-    }
     
-    public function login(Request $request){
-        dd($request->input('email'));
-    }
 }

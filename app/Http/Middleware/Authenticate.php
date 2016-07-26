@@ -18,7 +18,6 @@ class Authenticate
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        dd(Auth::guard($guard)->guest());
         
         if (Auth::guard($guard)->guest()) {
             if ($request->ajax() || $request->wantsJson()) {
