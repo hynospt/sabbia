@@ -23,6 +23,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('home/edit/{id}', 'HomeController@edit');
     Route::post('home/update', 'HomeController@update');
 
+    Route::get('/about/board/{id}', 'AboutController@board_index');
+    Route::get('/about/board/edit/{id}', 'AboutController@board_edit');
+    Route::get('/about/board/update', 'AboutController@board_update');
+
 	Route::get('/profile', function () {
 	    return 'profile bos';
 	});
