@@ -33,6 +33,25 @@ class HomeController extends Controller
     }
 
     public function update(Request $request){
-        
+        $home = Home::find(1);
+
+        $home->headerRow1 = $request->input('headerRow1');
+        $home->text1Row1 = $request->input('text1Row1');
+        $home->text2Row1 = $request->input('text2Row1');
+        $home->videoIcon = $request->input('videoIcon');
+        $home->videoText = $request->input('videoText');
+        $home->videoUrl = $request->input('videoUrl');
+        $home->bgImageRow1 = $request->input('bgImageRow1');
+        $home->productPrice = $request->input('productPrice');
+        $home->productName = $request->input('productName');
+        $home->unitType = $request->input('unitType');
+        $home->text1Row2 = $request->input('text1Row2');
+        $home->text2Row2 = $request->input('text2Row2');
+        $home->bgImageRow2 = $request->input('bgImageRow2');
+        $home->portfolioTag = $request->input('portfolioTag');
+        $home->portfolioImage = $request->input('portfolioImage');
+        $home->save();
+
+        return redirect()->back();
     }
 }
