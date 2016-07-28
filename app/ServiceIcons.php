@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ServiceIcons extends Model
 {
+	protected $table = 'serviceIcons';
     protected $fillable = [
     	'id',
     	'serviceId',

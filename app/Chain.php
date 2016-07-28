@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Chain extends Model
 {
+    protected $table = 'chain';
     protected $fillable = [
     	'id',
     	'title1',
