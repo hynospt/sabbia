@@ -12,7 +12,8 @@ class PortfolioPage extends Model
     	'bgImage',
     	'logo',
     	'lastRowTitle',
-    	'partners',
+        'partners',
+    	'type',
     	'created_at',
     	'updated_at',
     ];
