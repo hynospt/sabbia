@@ -17,4 +17,9 @@ class Directors extends Model
     	'created_at',
     	'updated_at'
     ];
+
+     public function board()
+    {
+        return $this->belongsTo('App\Board');
+    }
 }

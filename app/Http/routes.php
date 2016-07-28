@@ -27,6 +27,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/about/board/edit/{id}', 'AboutController@board_edit');
     Route::get('/about/board/update', 'AboutController@board_update');
 
+    Route::get('/about/director/{id}' , 'BoardController@index');
+    Route::get('/about/directors/create' , 'DirectorController@create');
+    Route::post('/about/directors/store' , 'DirectorController@store');
+
 	Route::get('/profile', function () {
 	    return 'profile bos';
 	});
