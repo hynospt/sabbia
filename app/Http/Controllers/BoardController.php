@@ -18,4 +18,6 @@ class BoardController extends Controller
     	}
     	exit;
     }
+
+    
 }

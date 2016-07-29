@@ -27,4 +27,19 @@ class DirectorController extends Controller
     	$director->boardId = 1;
     	$director->save();
     }
+
+    public function edit($id){
+        $director = Directors::find($id);
+
+        return view('admin.pages.about.board.director.edit')->with('director' , $director);
+    }
+
+    public function update(Request $request){
+
+        $director = Directors::find($request->input('id'));
+
+        $director->update($request->all());
+
+        return redirect()->back();
+    }
 }
