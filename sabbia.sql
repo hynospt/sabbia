@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 28, 2016 at 09:33 PM
+-- Generation Time: Jul 29, 2016 at 09:44 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.5.37
 
@@ -52,7 +52,7 @@ CREATE TABLE `boards` (
 --
 
 INSERT INTO `boards` (`id`, `mainTag`, `mainBgImage`, `mainLogo`, `titleRow2`, `titleRow3`, `contentRow3`, `videoUrl1`, `videoUrl2`, `videoCaption1`, `videoCaption2`, `text2Row2`, `philosophyImg`, `philosophyTitle`, `philosophyContent`, `type`, `created_at`, `updated_at`) VALUES
-(1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2016-07-28 18:56:59', '2016-07-28 18:56:59');
+(1, 'main', 'main', 'main', 'main', 'main', 'main', 'main', 'main', 'main', 'main', 'main', 'main', 'main', 'main', 'Page', '2016-07-28 18:56:59', '2016-07-29 19:12:30');
 
 -- --------------------------------------------------------
 
@@ -71,6 +71,13 @@ CREATE TABLE `chain` (
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `chain`
+--
+
+INSERT INTO `chain` (`id`, `title1`, `content1`, `image1`, `title2`, `content2`, `image2`, `created_at`, `updated_at`) VALUES
+(1, '1231', '231', '231', '23', '132123', '123', '2016-07-29 19:37:49', '2016-07-29 19:42:40');
 
 -- --------------------------------------------------------
 
@@ -122,9 +129,9 @@ CREATE TABLE `directors` (
 --
 
 INSERT INTO `directors` (`id`, `board_id`, `fullname`, `role`, `text`, `created_at`, `updated_at`) VALUES
-(1, 1, 'asdasd', 'asdasd', 'asd', '2016-07-28 18:46:29', '2016-07-28 18:46:29'),
-(2, 1, 'asdasd', 'asdasd', 'asd', '2016-07-28 18:46:30', '2016-07-28 18:46:30'),
-(3, 1, 'asdasd', 'asdasd', 'asd', '2016-07-28 18:46:56', '2016-07-28 18:46:56');
+(1, 1, '1', '1', '1', '2016-07-28 18:46:29', '2016-07-29 19:11:27'),
+(2, 1, 'asdf', 'qwer', 'zxc', '2016-07-28 18:46:30', '2016-07-29 19:11:19'),
+(3, 1, 'e', '3', '3', '2016-07-28 18:46:56', '2016-07-29 19:11:35');
 
 -- --------------------------------------------------------
 
@@ -179,6 +186,33 @@ INSERT INTO `homes` (`id`, `headerRow1`, `text1Row1`, `text2Row1`, `videoIcon`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `legal`
+--
+
+CREATE TABLE `legal` (
+  `id` int(1) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `mainTitle` varchar(255) NOT NULL,
+  `subTitle1` varchar(255) NOT NULL,
+  `subTitle2` varchar(255) NOT NULL,
+  `subContent1` varchar(255) NOT NULL,
+  `subContent2` varchar(255) NOT NULL,
+  `image1` varchar(255) NOT NULL,
+  `image2` varchar(255) NOT NULL,
+  `created_at` varchar(255) NOT NULL,
+  `updated_at` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `legal`
+--
+
+INSERT INTO `legal` (`id`, `title`, `mainTitle`, `subTitle1`, `subTitle2`, `subContent1`, `subContent2`, `image1`, `image2`, `created_at`, `updated_at`) VALUES
+(1, 'aq', 'sdaasda', 'sdasdsa', 'sdsdaasd', 'asdasd', 'dsa', 'asdasda', 'dsasdsdasda', '2016-07-29 19:29:42', '2016-07-29 19:36:47');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -220,6 +254,12 @@ ALTER TABLE `footer`
 -- Indexes for table `homes`
 --
 ALTER TABLE `homes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `legal`
+--
+ALTER TABLE `legal`
   ADD PRIMARY KEY (`id`);
 
 --
