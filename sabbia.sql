@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 29, 2016 at 09:44 PM
+-- Generation Time: Jul 30, 2016 at 12:09 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.5.37
 
@@ -213,6 +213,52 @@ INSERT INTO `legal` (`id`, `title`, `mainTitle`, `subTitle1`, `subTitle2`, `subC
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `services`
+--
+
+CREATE TABLE `services` (
+  `serviceId` int(1) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `subTitle` varchar(255) NOT NULL,
+  `created_at` varchar(255) NOT NULL,
+  `updated_at` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`serviceId`, `title`, `subTitle`, `created_at`, `updated_at`) VALUES
+(1, 'qqa', 'qqz', '2016-07-30 07:24:32', '2016-07-30 07:35:51');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `service_icon`
+--
+
+CREATE TABLE `service_icon` (
+  `id` int(1) NOT NULL,
+  `services_id` int(11) NOT NULL,
+  `bgImage` varchar(255) NOT NULL,
+  `coverImage` varchar(255) NOT NULL,
+  `created_at` varchar(255) NOT NULL,
+  `updated_at` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `service_icon`
+--
+
+INSERT INTO `service_icon` (`id`, `services_id`, `bgImage`, `coverImage`, `created_at`, `updated_at`) VALUES
+(1, 1, 'dq', 'dq', '2016-07-30 09:36:51', '2016-07-30 10:06:56'),
+(2, 1, 'zz', 'zz', '2016-07-30 09:37:40', '2016-07-30 10:07:01'),
+(3, 1, 'dqdq', 'qweqe', '2016-07-30 09:37:50', '2016-07-30 10:07:06'),
+(4, 1, 'qweqweq', 'weqwe', '2016-07-30 09:38:35', '2016-07-30 09:38:35');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -263,6 +309,18 @@ ALTER TABLE `legal`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `services`
+--
+ALTER TABLE `services`
+  ADD PRIMARY KEY (`serviceId`);
+
+--
+-- Indexes for table `service_icon`
+--
+ALTER TABLE `service_icon`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -277,6 +335,11 @@ ALTER TABLE `users`
 --
 ALTER TABLE `directors`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `service_icon`
+--
+ALTER TABLE `service_icon`
+  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `users`
 --
