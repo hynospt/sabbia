@@ -41,6 +41,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/about/chain/update' , 'ChainController@update');
     Route::get('/about/chain/{id}' , 'ChainController@index');
 
+    Route::get('/service' , 'ServiceController@index');
+    Route::get('/service/edit' , 'ServiceController@edit');
+    Route::post('/service/update' , 'ServiceController@update');
+
+    Route::get('/service/icon/create' , 'ServiceController@create');
+    Route::get('/service/icon/edit/{id}' , 'ServiceController@icon_edit');
+    Route::post('/service/icon/update' , 'ServiceController@icon_update');
+    Route::post('/service/icon/store' , 'ServiceController@store');
+    Route::get('/service/icon/{id}' , 'ServiceController@icon_index');
+
 	Route::get('/profile', function () {
 	    return 'profile bos';
 	});
