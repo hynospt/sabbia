@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PortfolioPage extends Model
 {
+    protected $primaryKey = 'pageId';
     protected $fillable = [
     	'pageId',
     	'title',

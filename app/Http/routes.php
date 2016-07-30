@@ -51,6 +51,21 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/service/icon/store' , 'ServiceController@store');
     Route::get('/service/icon/{id}' , 'ServiceController@icon_index');
 
+    Route::get('/portfolio/edit' , 'PortfolioController@edit');
+    Route::get('/portfolio' , 'PortfolioController@index');
+    Route::post('/portfolio/update' , 'PortfolioController@update');
+
+    Route::get('/portfolio/item/edit/{id}' , 'PortfolioController@item_edit');
+    Route::post('/portfolio/item/update' , 'PortfolioController@item_update');
+    Route::get('/portfolio/item/create' , 'PortfolioController@item_create');
+    Route::post('/portfolio/item/store' , 'PortfolioController@item_store');
+    Route::get('/portfolio/item/{id}' , 'PortfolioController@item_index');
+
+    Route::get('/connect' , 'ConnectController@index');
+    Route::get('/connect/edit' , 'ConnectController@edit');
+    Route::post('/connect/update' , 'ConnectController@update');
+
+
 	Route::get('/profile', function () {
 	    return 'profile bos';
 	});

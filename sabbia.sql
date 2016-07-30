@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 30, 2016 at 12:09 PM
+-- Generation Time: Jul 30, 2016 at 10:11 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.5.37
 
@@ -93,6 +93,13 @@ CREATE TABLE `connect` (
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `connect`
+--
+
+INSERT INTO `connect` (`id`, `title`, `content`, `bgImage`, `created_at`, `updated_at`) VALUES
+(1, 'title ', 'title ', 'asdasda', '2016-07-30 20:01:12', '2016-07-30 20:09:44');
 
 -- --------------------------------------------------------
 
@@ -213,6 +220,56 @@ INSERT INTO `legal` (`id`, `title`, `mainTitle`, `subTitle1`, `subTitle2`, `subC
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `portfolios`
+--
+
+CREATE TABLE `portfolios` (
+  `id` int(11) NOT NULL,
+  `pageId` int(1) NOT NULL,
+  `partnerLogo` varchar(255) NOT NULL,
+  `partnerCompanyName` varchar(255) NOT NULL,
+  `partnerContent` varchar(255) NOT NULL,
+  `partnerBackgroundImage` varchar(255) NOT NULL,
+  `created_at` varchar(255) NOT NULL,
+  `updated_at` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `portfolios`
+--
+
+INSERT INTO `portfolios` (`id`, `pageId`, `partnerLogo`, `partnerCompanyName`, `partnerContent`, `partnerBackgroundImage`, `created_at`, `updated_at`) VALUES
+(1, 1, 'partnerLogo ', 'partnerLogo ', 'partnerLogo ', 'asdasd', '2016-07-30 19:30:11', '2016-07-30 19:30:11'),
+(2, 1, 'asd', 'partnerBackgroundImage ', 'partnerBackgroundImage mpanyName ', 'partnerBackgroundImage ', '2016-07-30 19:30:28', '2016-07-30 19:48:29');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `portfolio_pages`
+--
+
+CREATE TABLE `portfolio_pages` (
+  `pageId` int(1) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `bgImage` varchar(255) NOT NULL,
+  `logo` varchar(255) NOT NULL,
+  `lastRowTitle` varchar(255) NOT NULL,
+  `partners` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `created_at` varchar(255) NOT NULL,
+  `updated_at` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `portfolio_pages`
+--
+
+INSERT INTO `portfolio_pages` (`pageId`, `title`, `bgImage`, `logo`, `lastRowTitle`, `partners`, `type`, `created_at`, `updated_at`) VALUES
+(1, 'title ', 'title ', 'title ', 'title ', 'title ', 'title ', '2016-07-30 18:58:52', '2016-07-30 18:59:54');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `services`
 --
 
@@ -309,6 +366,18 @@ ALTER TABLE `legal`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `portfolios`
+--
+ALTER TABLE `portfolios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `portfolio_pages`
+--
+ALTER TABLE `portfolio_pages`
+  ADD PRIMARY KEY (`pageId`);
+
+--
 -- Indexes for table `services`
 --
 ALTER TABLE `services`
@@ -335,6 +404,11 @@ ALTER TABLE `users`
 --
 ALTER TABLE `directors`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `portfolios`
+--
+ALTER TABLE `portfolios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `service_icon`
 --

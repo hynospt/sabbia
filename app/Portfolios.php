@@ -16,4 +16,8 @@ class Portfolios extends Model
     	'created_at',
     	'updated_at',
     ];
+
+    public function portfolio_page(){
+        return $this->belongsTo('App\PortfolioPage');
+    }
 }
