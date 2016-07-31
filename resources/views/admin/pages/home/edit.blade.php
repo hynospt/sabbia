@@ -18,14 +18,13 @@ Edit Home
       </ol>
 
       <section class="content">
-
         <div class="row">
           <div class="col-md-12">
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title">Tier 1</h3>
               </div>
-              <form role="form" method="post" action="/home/update">
+              <form role="form" method="post" action="{{action('HomeController@update')}}" enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="box-body">
                   <div class="col-md-6">
@@ -37,7 +36,11 @@ Edit Home
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="exampleInputPassword1">bg img 1</label>
-                      <input class="form-control" id="exampleInputPassword1" placeholder="caption" type="file">
+                      <input class="form-control" id="exampleInputPassword1" name="bgImageRow1" placeholder="caption" type="file">
+                      <input class="form-control" id="exampleInputPassword1" name="oldImgBgRow1" placeholder="caption" type="hidden" value="{{$home->bgImageRow1}}">
+                      <!-- <input name="oldVideoIcon" value="{{$home->videoIcon}}" type="hidden"> -->
+
+                        <img src="{{url('saved_images/home')}}/{{$home->bgImageRow1}}">
                     </div>
                   </div>
 
@@ -58,7 +61,9 @@ Edit Home
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="exampleInputFile">Video Icon</label>
-                      <input id="exampleInputFile" type="file">
+                      <input id="exampleInputFile" name="videoIcon" type="file">
+                      <input name="oldVideoIcon" value="{{$home->videoIcon}}" type="hidden">
+                      <img src="{{url('saved_images/home')}}/{{$home->videoIcon}}">
 
                       <p class="help-block">max size MB</p>
                     </div>
@@ -120,7 +125,10 @@ Edit Home
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">bg img 2</label>
-                  <input class="form-control" id="exampleInputPassword1" placeholder="bg img 1" type="file">
+                  <input class="form-control" id="exampleInputPassword1" placeholder="bg img 1" name="bgImageRow2" type="file" value="">
+                  <input class="form-control" id="exampleInputPassword1" name="oldImgBgRow2" placeholder="caption" type="hidden" value="{{$home->bgImageRow2}}">
+                      <img src="{{url('saved_images/home')}}/{{$home->bgImageRow2}}">
+
                 </div>
               </div>
               <div class="box-footer">

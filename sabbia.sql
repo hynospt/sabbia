@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 30, 2016 at 10:11 PM
+-- Generation Time: Jul 31, 2016 at 06:48 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.5.37
 
@@ -188,7 +188,7 @@ CREATE TABLE `homes` (
 --
 
 INSERT INTO `homes` (`id`, `headerRow1`, `text1Row1`, `text2Row1`, `videoIcon`, `videoText`, `videoUrl`, `bgImageRow1`, `productPrice`, `productName`, `unitType`, `text1Row2`, `text2Row2`, `bgImageRow2`, `portfolioTag`, `portfolioImage`, `created_at`, `updated_at`, `type`) VALUES
-(1, 'Headings', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ', '', 'Watch Our Story Here', '#', '#', 'Rp 1,230,000,000', 'Diesel Fuel Floor Price', 'Barel', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.\n', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.\n', '#', 'Every sector of the industry that is in need of refined oil will be able to engage with our services. ', '#', '', '', 'Page');
+(1, 'Product Name', 'Product Name', 'Product Name', 'vicon20160731164759dummy-picture-1.jpg', 'Product Name', 'Product Name', 'bg120160731164759dummy-picture-1.jpg', 'Caption Left', 'Caption Left', 'Caption Left', 'Caption dq', 'Caption asda', 'bg220160731164759dummy-picture-1.jpg', 'Caption Left', 'Product Name', '', '2016-07-31 16:47:59', 'Page');
 
 -- --------------------------------------------------------
 
