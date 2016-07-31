@@ -7,11 +7,16 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Directors;
-
+use App\Board;
 class DirectorController extends Controller
 {
-    public function index($id){
-    	$director = Directors::find($id);
+    public function index(){
+        $board = Board::find(1);
+        $directors = $board->directors;
+        foreach ($directors as $director){
+            var_dump($director->id);
+        }
+        exit;
     }
 
     public function create(){

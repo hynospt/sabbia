@@ -50,8 +50,8 @@ class ServiceController extends Controller
     	return view('admin.pages.service.icon.edit')->with('icon' , $serviceIcon);
     }
 
-    public function icon_index($id){
-    	$serviceIcon = Icon::find($id);
+    public function icon_index(){
+    	$serviceIcon = Icon::all();
     	return view('admin.pages.service.icon.index')->with('icon' , $serviceIcon);
     }
 

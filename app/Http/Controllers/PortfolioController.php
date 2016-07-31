@@ -54,4 +54,9 @@ class PortfolioController extends Controller
 
     	return redirect()->back();
     }
+
+    public function item_index(){
+        $items = Item::all();
+        return view('admin.pages.portfolio.item.index')->with('items' , $items);
+    }
 }

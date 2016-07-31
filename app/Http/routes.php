@@ -27,7 +27,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/about/board/edit/{id}' , 'AboutController@edit');
     Route::post('about/board/update', 'AboutController@update');
 
-    Route::get('/about/director/{id}' , 'BoardController@index');
+    Route::get('/about/directors' , 'DirectorController@index');
     Route::get('/about/directors/create' , 'DirectorController@create');
     Route::post('/about/directors/store' , 'DirectorController@store');
     Route::get('/about/director/edit/{id}' , 'DirectorController@edit');
@@ -49,7 +49,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/service/icon/edit/{id}' , 'ServiceController@icon_edit');
     Route::post('/service/icon/update' , 'ServiceController@icon_update');
     Route::post('/service/icon/store' , 'ServiceController@store');
-    Route::get('/service/icon/{id}' , 'ServiceController@icon_index');
+    Route::get('/service/icon' , 'ServiceController@icon_index');
 
     Route::get('/portfolio/edit' , 'PortfolioController@edit');
     Route::get('/portfolio' , 'PortfolioController@index');
@@ -59,7 +59,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/portfolio/item/update' , 'PortfolioController@item_update');
     Route::get('/portfolio/item/create' , 'PortfolioController@item_create');
     Route::post('/portfolio/item/store' , 'PortfolioController@item_store');
-    Route::get('/portfolio/item/{id}' , 'PortfolioController@item_index');
+    Route::get('/portfolio/item' , 'PortfolioController@item_index');
 
     Route::get('/connect' , 'ConnectController@index');
     Route::get('/connect/edit' , 'ConnectController@edit');
