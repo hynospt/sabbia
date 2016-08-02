@@ -31,6 +31,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/about/directors/create' , 'DirectorController@create');
     Route::post('/about/directors/store' , 'DirectorController@store');
     Route::get('/about/director/edit/{id}' , 'DirectorController@edit');
+    Route::get('/about/director/delete/{id}' , 'DirectorController@delete');
     Route::post('/about/director/update' , 'DirectorController@update');
 
     Route::get('/about/legal/edit' , 'LegalController@edit');
@@ -69,4 +70,11 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::get('/profile', function () {
 	    return 'profile bos';
 	});
+});
+
+Route::get('test', function(){
+    $model = new \App\Directors();
+    $msg = ['a'=>'ono'];
+    $valid = $model->create($msg);
+    dd($valid);
 });

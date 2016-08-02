@@ -2,20 +2,29 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 
-class Directors extends Model
+class Directors extends ExtendedModel
 {
 	protected $table = 'directors';
 
     protected $fillable = [
     	'id',
-    	'boardId',
+    	'board_id',
     	'fullname',
     	'role',
-    	'text',
+        'text',
+    	'photo',
     	'created_at',
     	'updated_at'
+    ];
+
+
+    public static $rules = [
+        'fullname'=>'required'
+    ];
+
+    public static $custom_attributes = [
+        'fullname' => 'Full Name'
     ];
 
      public function board()

@@ -13,10 +13,12 @@ class DirectorController extends Controller
     public function index(){
         $board = Board::find(1);
         $directors = $board->directors;
-        foreach ($directors as $director){
-            var_dump($director->id);
-        }
-        exit;
+        // foreach ($directors as $director){
+        //     echo "<pre/>";
+        //     print_r($director);
+        // }
+        $index = 1;
+        return view('admin.pages.about.board.director.index')->with(['directors' => $directors , 'index' => $index]);
     }
 
     public function create(){
@@ -25,12 +27,14 @@ class DirectorController extends Controller
 
     public function store(Request $request){
     	$director = new Directors();
-
-    	$director->fullname = $request->input('fullname');
-    	$director->role = $request->input('role');
-    	$director->text = $request->input('text');
-    	$director->boardId = 1;
-    	$director->save();
+        $create = $director->create($request->all());
+        if (!$create instanceOf Directors) {
+            flash('Oops, Something Went Wrong!', 'danger');
+            // dd($create->toArray());
+            return redirect()->back()->withInput()->withErrors($create->toArray());
+        }
+        dd($create);
+        return \Redirect::to('/dashboard');        
     }
 
     public function edit($id){
@@ -45,6 +49,11 @@ class DirectorController extends Controller
 
         $director->update($request->all());
 
+        return redirect()->back();
+    }
+
+    public function delete($id){
+        $director = Directors::destroy($id);
         return redirect()->back();
     }
 }

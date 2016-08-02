@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.5.0.2
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 31, 2016 at 06:48 PM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 5.5.37
+-- Generation Time: Aug 02, 2016 at 06:03 PM
+-- Server version: 10.0.17-MariaDB
+-- PHP Version: 5.5.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -127,6 +127,7 @@ CREATE TABLE `directors` (
   `fullname` varchar(255) NOT NULL,
   `role` varchar(255) NOT NULL,
   `text` varchar(255) NOT NULL,
+  `photo` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -135,10 +136,28 @@ CREATE TABLE `directors` (
 -- Dumping data for table `directors`
 --
 
-INSERT INTO `directors` (`id`, `board_id`, `fullname`, `role`, `text`, `created_at`, `updated_at`) VALUES
-(1, 1, '1', '1', '1', '2016-07-28 18:46:29', '2016-07-29 19:11:27'),
-(2, 1, 'asdf', 'qwer', 'zxc', '2016-07-28 18:46:30', '2016-07-29 19:11:19'),
-(3, 1, 'e', '3', '3', '2016-07-28 18:46:56', '2016-07-29 19:11:35');
+INSERT INTO `directors` (`id`, `board_id`, `fullname`, `role`, `text`, `photo`, `created_at`, `updated_at`) VALUES
+(1, 1, '1', '1', '1', '', '2016-07-28 18:46:29', '2016-07-29 19:11:27'),
+(4, 1, 'qweq', 'eq', 'we', '', '2016-08-02 13:31:49', '2016-08-02 13:31:49'),
+(5, 1, 'qweq', 'eq', 'we', '', '2016-08-02 13:32:01', '2016-08-02 13:32:01'),
+(6, 1, 'a', 'dsasd', 'asdasd', '', '2016-08-02 13:32:05', '2016-08-02 13:32:05'),
+(7, 1, 'ads', 'asdasd', 'asd', '', '2016-08-02 14:14:19', '2016-08-02 14:14:19'),
+(8, 1, 'fullname ', 'fullname ', 'fullname ', '', '2016-08-02 14:14:23', '2016-08-02 14:14:23'),
+(9, 1, 'fullname ', 'fullname ', 'fullname ', '', '2016-08-02 14:14:27', '2016-08-02 14:14:27'),
+(10, 1, 'fullname ', 'fullname ', 'fullname ', '', '2016-08-02 14:14:28', '2016-08-02 14:14:28'),
+(11, 1, 'fullname ', 'fullname ', 'fullname ', '', '2016-08-02 14:14:33', '2016-08-02 14:14:33'),
+(13, 1, 'fullname ', 'fullname ', 'fullname ', '', '2016-08-02 14:15:33', '2016-08-02 14:15:33'),
+(14, 1, 'fullname ', 'fullname ', 'fullname ', '', '2016-08-02 14:15:35', '2016-08-02 14:15:35'),
+(15, 1, 'fullname ', 'fullname ', 'fullname ', '', '2016-08-02 14:15:37', '2016-08-02 14:15:37'),
+(16, 1, 'tesa', 'dasd', 'asd', '', '2016-08-02 14:23:38', '2016-08-02 14:23:38'),
+(17, 1, 'zzz', 'zzz', 'zzz', '', '2016-08-02 14:23:53', '2016-08-02 14:23:53'),
+(18, 0, '', '', '', '', '2016-08-02 15:02:04', '2016-08-02 15:02:04'),
+(19, 0, '', '', '', '', '2016-08-02 15:02:58', '2016-08-02 15:02:58'),
+(20, 0, 'qweqweqwe', 'ezazzz', 'zzzxxcccxxx', '', '2016-08-02 15:54:31', '2016-08-02 15:54:31'),
+(21, 0, 'qweqweqwe', 'ezazzz', 'zzzxxcccxxx', '', '2016-08-02 15:54:52', '2016-08-02 15:54:52'),
+(22, 0, 'xxxx', 'xxxxx', 'xxxx', '', '2016-08-02 15:55:22', '2016-08-02 15:55:22'),
+(23, 0, 'Colton Charles', 'Ut velit consequatur sit ipsam odit aut facere voluptas voluptas nihil quia dolores aut ut exercitationem deserunt eiusmod', 'Aut laboris a distinctio. Atque alias rem obcaecati fugit, minim cupiditate in laboriosam, porro nulla eu qui odit fugiat.', '', '2016-08-02 15:59:12', '2016-08-02 15:59:12'),
+(24, 1, 'Aaron Nelson', 'Esse sit elit iure nihil iure fuga Cumque corrupti qui aut culpa anim odio', 'Consequuntur et accusamus nobis aliquip distinctio. Nisi voluptatem molestiae accusantium maiores in id pariatur? Ut rerum quia eos.', '', '2016-08-02 16:00:03', '2016-08-02 16:00:03');
 
 -- --------------------------------------------------------
 
@@ -403,7 +422,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `directors`
 --
 ALTER TABLE `directors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `portfolios`
 --

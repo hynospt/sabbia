@@ -19,6 +19,8 @@
 	<link rel="stylesheet" href="{{url('assets')}}/css/vendor/plugins/daterangepicker/daterangepicker.css">
 	<link rel="stylesheet" href="{{url('assets')}}/css/vendor/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
+	@yield('loadCss')
+
 </head>
 
 
@@ -60,5 +62,7 @@
 	<script src="{{url('assets')}}/js/vendor/dist/app.min.js"></script>
 	<script src="{{url('assets')}}/js/vendor/dist/pages/dashboard.js"></script>
 	<script src="{{url('assets')}}/js/vendor/dist/demo.js"></script>
+
+	@yield('scriptJs')
 </body>
 </html>

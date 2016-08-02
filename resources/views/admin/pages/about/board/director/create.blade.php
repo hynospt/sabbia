@@ -6,7 +6,21 @@ Add Director
 
 @section('body')
   <div class="content-wrapper">
-    
+    @if (session()->has('flash_notification.message'))
+      <div class="alert alert-{{ session('flash_notification.level') }}">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+          {!! session('flash_notification.message') !!}
+          <ul style="list-style:none;">
+            <li><B>Errors: </B></li>
+          </uil>
+          <ul>
+            @foreach($errors->messages() as $key=>$value)
+              <li>{!! sprintf("%s - %s", $key, $value[0]) !!}</li>
+            @endforeach
+          </ul>
+      </div>
+    @endif
     <section class="content-header">
       <h1>
         Add Director
@@ -18,17 +32,46 @@ Add Director
       </ol>
 
       <section class="content">
-        <form name="addDirectorForm" action="store" method="post">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-          
-          fullname
-          <input type="text" name="fullname">
-          role
-          <input type="text" name="role">
-          text
-          <input type="textarea" name="text">
-          <input type="submit">
-        </form>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="box box-primary">
+              <div class="box-header with-border">
+                <h3 class="box-title">Add Director Form</h3>
+              </div>
+              
+              <form role="form" name="addDirectorForm" action="store" method="post">
+                <div class="box-body">
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                  
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Fullname</label>
+                      <input class="form-control" id="headerRow1"  name="fullname" placeholder="fullname" type="text" value="">
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Role</label>
+                      {{ Form::text('role',null,['class'=>'form-control','placeholder'=>'Role']) }}
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Content</label>
+                      <textarea class="form-control" id="headerRow1"  name="text" placeholder="content"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+        
       </section>
     </section>
 
