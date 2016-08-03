@@ -20,7 +20,9 @@ class Directors extends ExtendedModel
 
 
     public static $rules = [
-        'fullname'=>'required'
+        'fullname'=>'required',
+        'text'=>'required',
+        'role'=>'required',
     ];
 
     public static $custom_attributes = [

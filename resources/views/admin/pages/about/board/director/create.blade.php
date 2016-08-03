@@ -43,11 +43,12 @@ Add Director
               <form role="form" name="addDirectorForm" action="store" method="post">
                 <div class="box-body">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                  <input type="hidden" name="board_id" value="1">
                   
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Fullname</label>
-                      <input class="form-control" id="headerRow1"  name="fullname" placeholder="fullname" type="text" value="">
+                      {{ Form::text('fullname',null,['class'=>'form-control','placeholder'=>'fullname']) }}
                     </div>
                   </div>
                   <div class="col-md-12">
@@ -59,7 +60,7 @@ Add Director
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Content</label>
-                      <textarea class="form-control" id="headerRow1"  name="text" placeholder="content"></textarea>
+                      {{ Form::textarea('text',null,['class'=>'form-control','placeholder'=>'content']) }}
                     </div>
                   </div>
                 </div>

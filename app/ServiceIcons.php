@@ -2,12 +2,10 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-
-class ServiceIcons extends Model
+class ServiceIcons extends ExtendedModel
 {
 	protected $table = 'service_icon';
-	protected $foreignKey = 'serviceId';
+	protected $foreignKey = 'services_id';
     protected $fillable = [
     	'id',
     	'services_id',
@@ -15,6 +13,17 @@ class ServiceIcons extends Model
     	'coverImage',
     	'created_at',
     	'updated_at'
+    ];
+
+    public static $rules = [
+        'bgImage' => 'required|mimes:png,jpg,jpeg',
+        'coverImage' => 'required|mimes:png,jpg,jpeg',
+        'tag' => 'required',
+    ];
+
+    public static $custom_attributes = [
+        'bgImage' => 'Background Image',
+        'coverImage' => 'Cover Image',
     ];
 
     public function services(){

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-
+use Illuminate\Support\MessageBag;
 use App\Directors;
 use App\Board;
 class DirectorController extends Controller
@@ -33,7 +33,6 @@ class DirectorController extends Controller
             // dd($create->toArray());
             return redirect()->back()->withInput()->withErrors($create->toArray());
         }
-        dd($create);
         return \Redirect::to('/dashboard');        
     }
 
@@ -44,12 +43,14 @@ class DirectorController extends Controller
     }
 
     public function update(Request $request){
-
         $director = Directors::find($request->input('id'));
-
-        $director->update($request->all());
-
-        return redirect()->back();
+        $update = $director->update($request->all());
+        
+        if ($update instanceOf MessageBag) {
+            flash('Oops, Something Went Wrong!', 'danger');
+            return redirect()->back()->withInput()->withErrors($update);
+        }
+            return redirect()->back();
     }
 
     public function delete($id){

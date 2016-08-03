@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.0.2
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 02, 2016 at 06:03 PM
--- Server version: 10.0.17-MariaDB
--- PHP Version: 5.5.30
+-- Generation Time: Aug 03, 2016 at 09:06 PM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 5.5.37
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -127,7 +127,6 @@ CREATE TABLE `directors` (
   `fullname` varchar(255) NOT NULL,
   `role` varchar(255) NOT NULL,
   `text` varchar(255) NOT NULL,
-  `photo` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -136,28 +135,11 @@ CREATE TABLE `directors` (
 -- Dumping data for table `directors`
 --
 
-INSERT INTO `directors` (`id`, `board_id`, `fullname`, `role`, `text`, `photo`, `created_at`, `updated_at`) VALUES
-(1, 1, '1', '1', '1', '', '2016-07-28 18:46:29', '2016-07-29 19:11:27'),
-(4, 1, 'qweq', 'eq', 'we', '', '2016-08-02 13:31:49', '2016-08-02 13:31:49'),
-(5, 1, 'qweq', 'eq', 'we', '', '2016-08-02 13:32:01', '2016-08-02 13:32:01'),
-(6, 1, 'a', 'dsasd', 'asdasd', '', '2016-08-02 13:32:05', '2016-08-02 13:32:05'),
-(7, 1, 'ads', 'asdasd', 'asd', '', '2016-08-02 14:14:19', '2016-08-02 14:14:19'),
-(8, 1, 'fullname ', 'fullname ', 'fullname ', '', '2016-08-02 14:14:23', '2016-08-02 14:14:23'),
-(9, 1, 'fullname ', 'fullname ', 'fullname ', '', '2016-08-02 14:14:27', '2016-08-02 14:14:27'),
-(10, 1, 'fullname ', 'fullname ', 'fullname ', '', '2016-08-02 14:14:28', '2016-08-02 14:14:28'),
-(11, 1, 'fullname ', 'fullname ', 'fullname ', '', '2016-08-02 14:14:33', '2016-08-02 14:14:33'),
-(13, 1, 'fullname ', 'fullname ', 'fullname ', '', '2016-08-02 14:15:33', '2016-08-02 14:15:33'),
-(14, 1, 'fullname ', 'fullname ', 'fullname ', '', '2016-08-02 14:15:35', '2016-08-02 14:15:35'),
-(15, 1, 'fullname ', 'fullname ', 'fullname ', '', '2016-08-02 14:15:37', '2016-08-02 14:15:37'),
-(16, 1, 'tesa', 'dasd', 'asd', '', '2016-08-02 14:23:38', '2016-08-02 14:23:38'),
-(17, 1, 'zzz', 'zzz', 'zzz', '', '2016-08-02 14:23:53', '2016-08-02 14:23:53'),
-(18, 0, '', '', '', '', '2016-08-02 15:02:04', '2016-08-02 15:02:04'),
-(19, 0, '', '', '', '', '2016-08-02 15:02:58', '2016-08-02 15:02:58'),
-(20, 0, 'qweqweqwe', 'ezazzz', 'zzzxxcccxxx', '', '2016-08-02 15:54:31', '2016-08-02 15:54:31'),
-(21, 0, 'qweqweqwe', 'ezazzz', 'zzzxxcccxxx', '', '2016-08-02 15:54:52', '2016-08-02 15:54:52'),
-(22, 0, 'xxxx', 'xxxxx', 'xxxx', '', '2016-08-02 15:55:22', '2016-08-02 15:55:22'),
-(23, 0, 'Colton Charles', 'Ut velit consequatur sit ipsam odit aut facere voluptas voluptas nihil quia dolores aut ut exercitationem deserunt eiusmod', 'Aut laboris a distinctio. Atque alias rem obcaecati fugit, minim cupiditate in laboriosam, porro nulla eu qui odit fugiat.', '', '2016-08-02 15:59:12', '2016-08-02 15:59:12'),
-(24, 1, 'Aaron Nelson', 'Esse sit elit iure nihil iure fuga Cumque corrupti qui aut culpa anim odio', 'Consequuntur et accusamus nobis aliquip distinctio. Nisi voluptatem molestiae accusantium maiores in id pariatur? Ut rerum quia eos.', '', '2016-08-02 16:00:03', '2016-08-02 16:00:03');
+INSERT INTO `directors` (`id`, `board_id`, `fullname`, `role`, `text`, `created_at`, `updated_at`) VALUES
+(4, 0, 'yono', 'yono', 'oyon', '2016-08-03 16:41:15', '2016-08-03 16:41:15'),
+(5, 0, 'yono', 'yono', 'oyon', '2016-08-03 16:42:57', '2016-08-03 16:42:57'),
+(8, 1, 'Joko Widodo', 'President', 'Lorem Ipsum LBa', '2016-08-03 17:57:56', '2016-08-03 17:57:56'),
+(9, 1, 'Joko Widodo 2', 'President', 'Lorem Ipsum LBa', '2016-08-03 18:14:41', '2016-08-03 18:14:41');
 
 -- --------------------------------------------------------
 
@@ -318,6 +300,7 @@ CREATE TABLE `service_icon` (
   `services_id` int(11) NOT NULL,
   `bgImage` varchar(255) NOT NULL,
   `coverImage` varchar(255) NOT NULL,
+  `tag` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -326,11 +309,37 @@ CREATE TABLE `service_icon` (
 -- Dumping data for table `service_icon`
 --
 
-INSERT INTO `service_icon` (`id`, `services_id`, `bgImage`, `coverImage`, `created_at`, `updated_at`) VALUES
-(1, 1, 'dq', 'dq', '2016-07-30 09:36:51', '2016-07-30 10:06:56'),
-(2, 1, 'zz', 'zz', '2016-07-30 09:37:40', '2016-07-30 10:07:01'),
-(3, 1, 'dqdq', 'qweqe', '2016-07-30 09:37:50', '2016-07-30 10:07:06'),
-(4, 1, 'qweqweq', 'weqwe', '2016-07-30 09:38:35', '2016-07-30 09:38:35');
+INSERT INTO `service_icon` (`id`, `services_id`, `bgImage`, `coverImage`, `tag`, `created_at`, `updated_at`) VALUES
+(1, 1, 'dq', 'dq', '', '2016-07-30 09:36:51', '2016-07-30 10:06:56'),
+(2, 1, 'zz', 'zz', '', '2016-07-30 09:37:40', '2016-07-30 10:07:01'),
+(3, 1, 'dqdq', 'qweqe', '', '2016-07-30 09:37:50', '2016-07-30 10:07:06'),
+(4, 1, 'qweqweq', 'weqwe', '', '2016-07-30 09:38:35', '2016-07-30 09:38:35'),
+(5, 0, '', '', '', '2016-08-03 18:16:52', '2016-08-03 18:16:52'),
+(6, 0, '', '', '', '2016-08-03 18:17:14', '2016-08-03 18:17:14'),
+(7, 0, '', '', '', '2016-08-03 18:18:01', '2016-08-03 18:18:01'),
+(8, 0, 'D:\\xampp\\tmp\\php8310.tmp', 'D:\\xampp\\tmp\\php8311.tmp', '', '2016-08-03 18:38:35', '2016-08-03 18:38:35'),
+(9, 0, 'D:\\xampp\\tmp\\phpE30F.tmp', 'D:\\xampp\\tmp\\phpE310.tmp', '', '2016-08-03 18:40:05', '2016-08-03 18:40:05'),
+(10, 0, 'D:\\xampp\\tmp\\php200B.tmp', 'D:\\xampp\\tmp\\php200C.tmp', '', '2016-08-03 18:45:48', '2016-08-03 18:45:48'),
+(11, 0, 'D:\\xampp\\tmp\\php7DBE.tmp', 'D:\\xampp\\tmp\\php7DBF.tmp', '', '2016-08-03 18:46:12', '2016-08-03 18:46:12'),
+(12, 0, 'D:\\xampp\\tmp\\php9399.tmp', 'D:\\xampp\\tmp\\php939A.tmp', '', '2016-08-03 18:46:18', '2016-08-03 18:46:18'),
+(13, 0, 'D:\\xampp\\tmp\\phpDE31.tmp', 'D:\\xampp\\tmp\\phpDE32.tmp', '', '2016-08-03 18:46:37', '2016-08-03 18:46:37'),
+(14, 1, 'D:\\xampp\\tmp\\phpC353.tmp', 'D:\\xampp\\tmp\\phpC354.tmp', '', '2016-08-03 18:47:36', '2016-08-03 18:47:36'),
+(15, 1, 'D:\\xampp\\tmp\\php91C1.tmp', 'D:\\xampp\\tmp\\php91C2.tmp', '', '2016-08-03 18:48:29', '2016-08-03 18:48:29'),
+(16, 1, 'D:\\xampp\\tmp\\php674E.tmp', 'D:\\xampp\\tmp\\php674F.tmp', '', '2016-08-03 18:50:30', '2016-08-03 18:50:30'),
+(17, 1, 'D:\\xampp\\tmp\\php2ED6.tmp', 'D:\\xampp\\tmp\\php2ED7.tmp', '', '2016-08-03 18:51:20', '2016-08-03 18:51:20'),
+(18, 1, 'D:\\xampp\\tmp\\php646F.tmp', 'D:\\xampp\\tmp\\php6470.tmp', '', '2016-08-03 18:51:34', '2016-08-03 18:51:34'),
+(19, 1, 'D:\\xampp\\tmp\\php46F3.tmp', 'D:\\xampp\\tmp\\php46F4.tmp', '', '2016-08-03 18:52:32', '2016-08-03 18:52:32'),
+(20, 1, 'D:\\xampp\\tmp\\php4D75.tmp', 'D:\\xampp\\tmp\\php4D76.tmp', '', '2016-08-03 18:54:44', '2016-08-03 18:54:44'),
+(21, 0, 'bg20160803185444Ok-icon.png', 'cover20160803185444dummy-background-1.jpg', '', '2016-08-03 18:54:44', '2016-08-03 18:54:44'),
+(22, 1, 'D:\\xampp\\tmp\\phpB2B9.tmp', 'D:\\xampp\\tmp\\phpB2BA.tmp', '', '2016-08-03 18:55:10', '2016-08-03 18:55:10'),
+(23, 0, 'bg20160803185510dummy-background-1.jpg', 'cover20160803185510Ok-icon.png', '', '2016-08-03 18:55:10', '2016-08-03 18:55:10'),
+(24, 1, 'D:\\xampp\\tmp\\php93BF.tmp', 'D:\\xampp\\tmp\\php93C0.tmp', '', '2016-08-03 18:57:13', '2016-08-03 18:57:13'),
+(25, 1, 'bg20160803185713Ok-icon.png', 'cover20160803185713dummy-background-1.jpg', 'asdasd', '2016-08-03 18:57:13', '2016-08-03 18:57:13'),
+(26, 1, '', '', '', '2016-08-03 18:57:33', '2016-08-03 18:57:33'),
+(27, 1, 'bg20160803185737dummy-background-1.jpg', '', '', '2016-08-03 18:57:37', '2016-08-03 18:57:37'),
+(28, 1, '', '', '', '2016-08-03 18:57:41', '2016-08-03 18:57:41'),
+(29, 1, 'bg20160803185751hg.txt', 'cover20160803185751hg.txt', 'asdasd', '2016-08-03 18:57:51', '2016-08-03 18:57:51'),
+(30, 1, 'bg20160803190539hg.txt', 'cover20160803190539hg.txt', 'asdasdasdasdasdasd', '2016-08-03 19:05:39', '2016-08-03 19:05:39');
 
 -- --------------------------------------------------------
 
@@ -422,7 +431,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `directors`
 --
 ALTER TABLE `directors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `portfolios`
 --
@@ -432,7 +441,7 @@ ALTER TABLE `portfolios`
 -- AUTO_INCREMENT for table `service_icon`
 --
 ALTER TABLE `service_icon`
-  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT for table `users`
 --

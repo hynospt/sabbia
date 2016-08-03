@@ -20,7 +20,6 @@ Home
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Homepage</li>
       </ol>
-
       <section class="content">
           <div class="box">
             <div class="box-header">
@@ -52,8 +51,9 @@ Home
                     <td>{{$director->created_at}}</td>
                     <td>{{$director->updated_at}}</td>
                     <td>
-                      <button type="button" class="btn btn-warning"><a href="{{ action('DirectorController@edit' , $director->id) }}">Edit</a></button>
-                      <button type="button" class="btn btn-danger"><a href="{{action('DirectorController@delete', $director->id)}}">Delete</a></button>
+                      <a href="{{ action('DirectorController@edit' , $director->id) }}"><button type="button" class="btn btn-warning">Edit</button></a>
+                      
+                      <a href="{{ action('DirectorController@delete', $director->id)}}"><button type="button" class="btn btn-danger">Delete</button></a>
                     </td>
                   </tr>
                 @endforeach

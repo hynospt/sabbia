@@ -6,7 +6,7 @@ use Validator;
 class ExtendedModel extends Model{
 	public static $rules;
 	public static $custom_messages = [
-        'required' => ':attribute isi kolom ini'
+        // 'required' => ':attribute isi kolom ini'
     ];
     public static $custom_attributes;
 	public static function validate($input){
@@ -23,5 +23,12 @@ class ExtendedModel extends Model{
 	 		return $msg;
 	 	}
 	 	return parent::create($attributes);
+	 }
+
+	 public function update(array $attributes = [] , array $options = []){
+	 	if(($msg = static::validate($attributes)) instanceOf \Illuminate\Support\MessageBag){
+	 		return $msg;
+	 	}
+	 	return parent::update($attributes, $options);
 	 }
 }
