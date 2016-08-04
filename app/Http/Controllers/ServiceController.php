@@ -142,4 +142,9 @@ class ServiceController extends Controller
     	$serviceIcon->save();
     	return redirect()->back();
     }
+
+    public function icon_delete($id){
+        $icon = Icon::destroy($id);
+        return redirect()->back();
+    }
 }
