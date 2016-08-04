@@ -11,6 +11,7 @@ class ServiceIcons extends ExtendedModel
     	'services_id',
     	'bgImage',
     	'coverImage',
+        'tag',
     	'created_at',
     	'updated_at'
     ];

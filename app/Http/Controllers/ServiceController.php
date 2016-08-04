@@ -10,6 +10,8 @@ use App\Services;
 
 use App\ServiceIcons as Icon;
 
+use Validator;
+
 class ServiceController extends Controller
 {
     public function index(){
@@ -34,12 +36,24 @@ class ServiceController extends Controller
     public function store(Request $request){
     	$icon = new Icon();
         $path = public_path('saved_images/services');
-
-        $create = $icon->create($request->all());
-
         $bgImage = $request->file('bgImage');
         $coverImage = $request->file('coverImage');
+
+
+        $rules = [
+            'bgImage' => 'required|mimes:png,jpg,jpeg',
+            'coverImage' => 'required|mimes:png,jpg,jpeg',
+            'tag' => 'required',
+        ];
+
+        $validator = Validator::make($request->all() , $rules);
+        if($validator->fails()){
+            flash('Oops, Something Went Wrong!', 'danger');
+            return redirect()->back()->withInput()->withErrors($validator->messages());
+        }
+
         if($bgImage){
+            $bgImageExtension = $bgImage->getClientOriginalExtension();
             $bgImageFileName = 'bg'.date('YmdHis').$bgImage->getClientOriginalName();
             $bgImage->move($path,$bgImageFileName);
 
@@ -47,21 +61,18 @@ class ServiceController extends Controller
         }
 
         if($coverImage){
+            $coverImageExtension = $coverImage->getClientOriginalExtension();
             $coverImageFileName = 'cover'.date('YmdHis').$coverImage->getClientOriginalName();
             $coverImage->move($path,$coverImageFileName);
 
             $icon->coverImage = $coverImageFileName;
         }
-        ### MASIH KE UPLOAD ! IMG
-        $icon->services_id = $request->input('services_id');
-        $icon->tag = $request->input('tag');
-        $icon->save();
 
-        if (!$create instanceOf Directors) {
-            flash('Oops, Something Went Wrong!', 'danger');
-            // dd($create->toArray());
-            return redirect()->back()->withInput()->withErrors($create);
-        }
+        $icon->services_id = 1;
+
+        $icon->tag = $request->input('tag');
+
+        $icon->save();
 
     	return redirect()->back();
     }
