@@ -50,6 +50,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/service/icon/edit/{id}' , 'ServiceController@icon_edit');
     Route::post('/service/icon/update' , 'ServiceController@icon_update');
     Route::post('/service/icon/store' , 'ServiceController@store');
+    Route::post('/service/icon/delete/{id}' , 'ServiceController@icon_delete');
     Route::get('/service/icon' , 'ServiceController@icon_index');
 
     Route::get('/portfolio/edit' , 'PortfolioController@edit');
