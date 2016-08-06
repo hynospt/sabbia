@@ -58,6 +58,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/portfolio/update' , 'PortfolioController@update');
 
     Route::get('/portfolio/item/edit/{id}' , 'PortfolioController@item_edit');
+    Route::get('/portfolio/item/delete/{id}' , 'PortfolioController@item_delete');
     Route::post('/portfolio/item/update' , 'PortfolioController@item_update');
     Route::get('/portfolio/item/create' , 'PortfolioController@item_create');
     Route::post('/portfolio/item/store' , 'PortfolioController@item_store');

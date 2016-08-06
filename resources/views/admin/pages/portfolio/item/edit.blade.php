@@ -6,7 +6,21 @@ Edit Portfolio
 
 @section('body')
   <div class="content-wrapper">
-    
+    @if (session()->has('flash_notification.message'))
+      <div class="alert alert-{{ session('flash_notification.level') }}">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+          {!! session('flash_notification.message') !!}
+          <ul style="list-style:none;">
+            <li><B>Errors: </B></li>
+          </uil>
+          <ul>
+            @foreach($errors->messages() as $key=>$value)
+              <li>{!! sprintf("%s - %s", $key, $value[0]) !!}</li>
+            @endforeach
+          </ul>
+      </div>
+    @endif
     <section class="content-header">
       <h1>
         Edit Portfolio
@@ -18,16 +32,54 @@ Edit Portfolio
       </ol>
 
       <section class="content">
-      	<form name="editServiceIconForm" action="{{action('PortfolioController@item_update')}}" method="post">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-      		<input type="hidden" name="id" value="{{$item->id}}">
-          partnerLogo : <input name="partnerLogo" value="{{$item->partnerLogo}}"/><br/>
-          partnerCompanyName : <input name="partnerCompanyName" value="{{$item->partnerCompanyName}}"/><br/>
-          partnerContent : <input name="partnerContent" value="{{$item->partnerContent}}"/><br/>
-          partnerBackgroundImage : <input name="partnerBackgroundImage" value="{{$item->partnerBackgroundImage}}"/><br/>
-
-      		<input type="submit">
-      	</form>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="box box-primary">
+              <div class="box-header with-border">
+                <h3 class="box-title">Edit Service Icon</h3>
+              </div>
+              
+              <form name="editServiceIconForm" action="{{action('PortfolioController@item_update')}}" method="post" enctype="multipart/form-data">
+                <div class="box-body">
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                  <input type="hidden" name="pageId" value="1">
+                  <input type="hidden" name="id" value="{{$item->id}}">
+                  
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Partner Logo</label>
+                      <input class="" name="partnerLogo" type="file">
+                      <input name="partnerLogo_old" value="{{$item->partnerLogo}}"/>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Background Image</label>
+                      <input class="" name="partnerBackgroundImage" type="file">
+                    <input name="partnerBackgroundImage_old" value="{{$item->partnerBackgroundImage}}"/>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Content</label>
+                      {{ Form::textarea('partnerContent',$item->partnerContent,['class'=>'form-control','placeholder'=>'partner content']) }}
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Partner Company Name</label>
+                      {{ Form::textarea('partnerCompanyName',$item->partnerCompanyName,['class'=>'form-control','placeholder'=>'partner company']) }}
+                    </div>
+                  </div>
+                </div>
+                <div class="box-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        
       </section>
     </section>
 
