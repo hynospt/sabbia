@@ -24,7 +24,56 @@ class PortfolioController extends Controller
 
     public function update(Request $request){
     	$portfolio = Portfolio::find(1);
-    	$portfolio->update($request->all());
+        $path = public_path('saved_images/portfolio');
+
+        $bgimg = $request->file('bgImage');
+        $bgimgold = $request->input('bgImage_old');
+
+        $logo = $request->file('logo');
+        $logoold = $request->input('logo_old');
+ 
+        $rules = [
+            'title' => 'required',
+            'partners' => 'required',
+            'bgImage' => 'required|mimes:png,jpg,jpeg',
+            'logo' => 'required|mimes:png,jpg,jpeg',
+            'lastRowTitle' => 'required'
+        ];
+
+        $validator = Validator::make($request->all() , $rules);
+        if($validator->fails()){
+            flash('Oops, Something Went Wrong!', 'danger');
+            return redirect()->back()->withInput()->withErrors($validator->messages());
+        }
+
+        if($bgimg){
+            $bgimgFilename = 'bg'.date('YmdHis').$bgimg->getClientOriginalName();
+            $bgimg->move($path,$bgimgFilename);
+            if($bgimgold){
+                $oldPath1 = $path.'/'.$bgimgold;
+                if(file_exists($oldPath1)){
+                    unlink($oldPath1);
+                }
+            }
+            $portfolio->bgImage = $bgimgFilename;
+        }
+
+        if($logo){
+            $logoFilename = 'logo'.date('YmdHis').$logo->getClientOriginalName();
+            $logo->move($path, $logoFilename);
+            if($logoold){
+                $oldPath2 = $path.'/'.$logoold;
+                if(file_exists($oldPath2)){
+                    unlink($oldPath2);
+                }
+            }
+            $portfolio->logo = $logoFilename;
+        }
+
+        $portfolio->partners = $request->input('partners');
+        $portfolio->lastRowTitle = $request->input('lastRowTitle');
+        $portfolio->title = $request->input('title');
+        $portfolio->save();
     	return redirect()->back();
     }
 
@@ -35,7 +84,7 @@ class PortfolioController extends Controller
 
     public function item_update(Request $request){
     	$item = Item::find($request->input('id'));
-        $path = public_path('saved_images/portfolios');
+        $path = public_path('saved_images/portfolio/item');
 
         $bgimg = $request->file('partnerBackgroundImage');
         $logo = $request->file('partnerLogo');
@@ -89,7 +138,7 @@ class PortfolioController extends Controller
 
     public function item_store(Request $request){
     	$item = new Item();
-        $path = public_path('saved_images/portfolios');
+        $path = public_path('saved_images/portfolio/item');
 
         $bgimg = $request->file('partnerBackgroundImage');
         $logo = $request->file('partnerLogo');
