@@ -60,56 +60,44 @@ Edit Legal
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="exampleInputEmail1">subTitle1</label>
-                      {{ Form::text('mainTitle', $legal->mainTitle , ['class' => 'form-control' , 'placeholder' => 'main title']) }}
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">subTitle1</label>
-                      {{ Form::textarea('tag',$icon->tag,['class'=>'form-control','placeholder'=>'tag']) }}
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">subTitle1</label>
-                      {{ Form::textarea('tag',$icon->tag,['class'=>'form-control','placeholder'=>'tag']) }}
+                      {{ Form::text('subTitle1', $legal->subTitle1 , ['class' => 'form-control' , 'placeholder' => 'sub title']) }}
                     </div>
                   </div>
 
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="exampleInputEmail1">subTitle2</label>
-                      {{ Form::textarea('tag',$icon->tag,['class'=>'form-control','placeholder'=>'tag']) }}
+                      {{ Form::text('subTitle2', $legal->subTitle2 , ['class' => 'form-control' , 'placeholder' => 'sub title']) }}
                     </div>
                   </div>
 
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="exampleInputEmail1">subContent1</label>
-                      {{ Form::textarea('tag',$icon->tag,['class'=>'form-control','placeholder'=>'tag']) }}
+                      {{ Form::textarea('subContent1', $legal->subContent1 , ['class' => 'form-control' , 'placeholder' => 'sub content']) }}
                     </div>
                   </div>
 
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="exampleInputEmail1">subContent2</label>
-                      {{ Form::textarea('tag',$icon->tag,['class'=>'form-control','placeholder'=>'tag']) }}
+                      {{ Form::textarea('subContent2', $legal->subContent2 , ['class' => 'form-control' , 'placeholder' => 'sub content']) }}
                     </div>
                   </div>
 
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Image 1</label>
-                      {{ Form::textarea('tag',$icon->tag,['class'=>'form-control','placeholder'=>'tag']) }}
+                      <input type="file" name="image1">
+                      <input type="hidden" name="image1_old" value="{{$legal->image1}}">
                     </div>
                   </div>
 
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Image 2</label>
-                      {{ Form::textarea('tag',$icon->tag,['class'=>'form-control','placeholder'=>'tag']) }}
+                      <input type="file" name="image2">
+                      <input type="hidden" name="image2_old" value="{{$legal->image2}}">
                     </div>
                   </div>
 
@@ -122,20 +110,6 @@ Edit Legal
             </div>
           </div>
         </div>
-         <form name="editLegalFrom" action="{{action('LegalController@update')}}" method="post">
-        title <input name="title" type="" value="{{$legal->title}}" / ><br/>
-        mainTitle<input name="mainTitle" type="" value="{{$legal->mainTitle}}" / ><br/>
-        subTitle1<input name="subTitle1" type="" value="{{$legal->subTitle1}}" / ><br/>
-        subTitle2<input name="subTitle2" type="" value="{{$legal->subTitle2}}" / ><br/>
-       subContent1 <input name="subContent1" type="" value="{{$legal->subContent1}}" / ><br/>
-        subContent2<input name="subContent2" type="" value="{{$legal->subContent2}}" / ><br/>
-        image1<input name="image1" type="" value="{{$legal->image1}}" / ><br/>
-        image2<input name="image2" type="" value="{{$legal->image2}}" / ><br/>
-        <br/>
-
-
-        <input type="submit">
-        </form>
       </section>
     </section>
 
