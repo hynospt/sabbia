@@ -2,9 +2,8 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 
-class Services extends Model
+class Services extends ExtendedModel
 {
     protected $table = 'services';
     protected $primaryKey = 'serviceId';
@@ -14,6 +13,15 @@ class Services extends Model
     	'subTitle',
     	'created_at',
     	'updated_at',
+    ];
+
+     public static $rules = [
+        'title'=>'required',
+        'subTitle'=>'required',
+    ];
+
+    public static $custom_attributes = [
+
     ];
 
     public function serviceIcons(){

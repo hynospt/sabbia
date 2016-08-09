@@ -6,7 +6,7 @@ Edit Service Page
 
 @section('body')
   <div class="content-wrapper">
-    
+    @include('errors.formErrors')
     <section class="content-header">
       <h1>
         Edit Service Page
@@ -18,14 +18,32 @@ Edit Service Page
       </ol>
 
       <section class="content">
-      	<form name="editServicePageForm" action="{{action('ServiceController@update')}}" method="post">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-      		
-      		title : <input name="title" value="{{$service->title}}"/><br/>
-      		subtitle : <input name="subTitle" value="{{$service->subTitle}}"/><br/>
 
-      		<input type="submit">
-      	</form>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="box box-primary">
+              <div class="box-header with-border">
+                <h3 class="box-title">Edit</h3>
+              </div>
+              <form name="editServicePageForm" action="{{action('ServiceController@update')}}" method="post">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <div class="box-body">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Page Title</label>
+                    <input class="form-control" id="exampleInputPassword1" placeholder="page title" type="text" value="{{$service->title}}" name="title">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Subtitle</label>
+                    <input class="form-control" id="exampleInputPassword1" placeholder="page content" type="text" name="subTitle" value="{{$service->subTitle}}">
+                  </div>
+              <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
       </section>
     </section>
 

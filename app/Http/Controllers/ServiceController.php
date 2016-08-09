@@ -12,6 +12,8 @@ use App\ServiceIcons as Icon;
 
 use Validator;
 
+use Illuminate\Support\MessageBag;
+
 class ServiceController extends Controller
 {
     public function index(){
@@ -29,8 +31,14 @@ class ServiceController extends Controller
 
     public function update(Request $request){
     	$service = Services::find(1);
-    	$service->update($request->all());
-    	return redirect()->back();
+
+        $update = $service->update($request->all());
+        
+        if ($update instanceOf MessageBag) {
+            flash('Oops, Something Went Wrong!', 'danger');
+            return redirect()->back()->withInput()->withErrors($update);
+        }
+            return redirect()->back();
     }
 
     public function store(Request $request){
