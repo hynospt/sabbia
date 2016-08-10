@@ -6,10 +6,10 @@ Edit Board
 
 @section('body')
   <div class="content-wrapper">
-    
+    @include('errors.formErrors')
     <section class="content-header">
       <h1>
-        Edit Board
+        Edit About
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
@@ -18,29 +18,126 @@ Edit Board
       </ol>
 
       <section class="content">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="box box-primary">
+              <div class="box-header with-border">
+                <h3 class="box-title">Edit Chain</h3>
+              </div>
+              <form name="editBoardFrom" action="{{action('AboutController@update')}}" method="post" enctype="multipart/form-data">
+                <div class="box-body">
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                  <input type="hidden" name="id" value="{{$board->id}}">
+                  
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Main Tag</label>
+                      {{ Form::text('mainTag', $board->mainTag , ['class' => 'form-control' , 'placeholder' => 'page title']) }}
+                    </div>
+                  </div>
 
-        <form name="editBoardFrom" action="{{action('AboutController@update')}}" method="post">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-          
-          mainTag <input name="mainTag" type="" value="{{$board->mainTag}}" / ><br/>
-        mainLogo <input name="mainBgImage" type="" value="{{$board->mainBgImage}}" / ><br/>
-        mainLogo<input name="mainLogo" type="" value="{{$board->mainLogo}}" / ><br/>
-        titleRow2<input name="titleRow2" type="" value="{{$board->titleRow2}}" / ><br/>
-        titleRow3<input name="titleRow3" type="" value="{{$board->titleRow3}}" / ><br/>
-       contentRow3 <input name="contentRow3" type="" value="{{$board->contentRow3}}" / ><br/>
-        videoUrl1<input name="videoUrl1" type="" value="{{$board->videoUrl1}}" / ><br/>
-        videoUrl2<input name="videoUrl2" type="" value="{{$board->videoUrl2}}" / ><br/>
-        videoCaption1<input name="videoCaption1" type="" value="{{$board->videoCaption1}}" / ><br/>
-        videoCaption2<input name="videoCaption2" type="" value="{{$board->videoCaption2}}" / ><br/>
-        text2Row2<input name="text2Row2" type="" value="{{$board->text2Row2}}" / ><br/>
-        philosophyImg<input name="philosophyImg" type="" value="{{$board->philosophyImg}}" / ><br/>
-        philosophyTitle<input name="philosophyTitle" type="" value="{{$board->philosophyTitle}}" / ><br/>
-        philosophyContent<input name="philosophyContent" type="" value="{{$board->philosophyContent}}" / ><br/>
-        <br/>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Main Background</label>
+                      <input type="file" name="mainBgImage">
+                      <input type="hidden" name="mainBgImage_old" value="{{$board->mainBgImage}}">
+                    </div>
+                  </div>
 
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Main Logo</label>
+                      <input type="file" name="mainLogo">
+                      <input type="hidden" name="mainLogo_old" value="{{$board->mainLogo}}">
+                    </div>
+                  </div>
 
-        <input type="submit">
-        </form>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Title Row II</label>
+                      {{ Form::text('titleRow2', $board->titleRow2 , ['class' => 'form-control' , 'placeholder' => 'main title']) }}
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Title Row III</label>
+                      {{ Form::text('titleRow3', $board->titleRow3 , ['class' => 'form-control' , 'placeholder' => 'main title']) }}
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Content Row III</label>
+                      {{ Form::text('contentRow3', $board->contentRow3 , ['class' => 'form-control' , 'placeholder' => 'main title']) }}
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Video Url I</label>
+                      {{ Form::text('videoUrl1', $board->videoUrl1 , ['class' => 'form-control' , 'placeholder' => 'main title']) }}
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Video Url II</label>
+                      {{ Form::text('videoUrl2', $board->videoUrl2 , ['class' => 'form-control' , 'placeholder' => 'main title']) }}
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Video Caption I</label>
+                      {{ Form::text('videoCaption1', $board->videoCaption1 , ['class' => 'form-control' , 'placeholder' => 'main title']) }}
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Video Caption II</label>
+                      {{ Form::text('videoCaption2', $board->videoCaption2 , ['class' => 'form-control' , 'placeholder' => 'main title']) }}
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Text 2 Row 2</label>
+                      {{ Form::text('text2Row2', $board->text2Row2 , ['class' => 'form-control' , 'placeholder' => 'page title']) }}
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Philosoppy Image</label>
+                      <input type="file" name="philosophyImg">
+                      <input type="hidden" name="philosophyImg_old" value="{{$board->philosophyImg}}">
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Philosoppy Title</label>
+                      {{ Form::text('philosophyTitle', $board->philosophyTitle , ['class' => 'form-control' , 'placeholder' => 'sub title']) }}
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Philosoppy Content</label>
+                      {{ Form::text('philosophyContent', $board->philosophyContent , ['class' => 'form-control' , 'placeholder' => 'sub title']) }}
+                    </div>
+                  </div>
+                </div>
+                <div class="box-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
 
       </section>
     </section>

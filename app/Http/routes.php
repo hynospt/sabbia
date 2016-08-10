@@ -24,7 +24,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('home/update', 'HomeController@update');
 
     Route::get('/about/board/{id}', 'AboutController@index');
-    Route::get('/about/board/edit/{id}' , 'AboutController@edit');
+    Route::get('/about/edit/{id}' , 'AboutController@edit');
     Route::post('about/board/update', 'AboutController@update');
 
     Route::get('/about/directors' , 'DirectorController@index');

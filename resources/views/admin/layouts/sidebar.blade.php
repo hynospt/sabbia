@@ -75,16 +75,13 @@
                     <i class="fa fa-file-o"></i> View Page
                   </a>
                 </li>
-                <li>
-                  <a href="{{url('about/board/edit/1')}}">
-                    <i class="fa fa-pencil-square-o"></i> Edit Page
-                  </a>
-                </li>
+                
               </ul>
             </li>
 
             <li><a href="{{url('about/legal/edit')}}"><i class="fa fa-pencil-square-o"></i> Legal</a></li>
             <li><a href="{{url('about/chain/edit')}}"><i class="fa fa-pencil-square-o"></i> Chain</a></li>
+            <li><a href="{{url('about/edit/1')}}"><i class="fa fa-pencil-square-o"></i> Edit Page</a></li>
           </ul>
         </li>
         <li class="treeview">
