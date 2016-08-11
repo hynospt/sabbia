@@ -6,7 +6,12 @@ Edit Home
 
 @section('body')
   <div class="content-wrapper">
-    
+    @if (session()->has('flash_notification.message'))
+      <div class="alert alert-{{ session('flash_notification.level') }}">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          {!! session('flash_notification.message') !!}
+      </div>
+    @endif
     <section class="content-header">
       <h1>
         Home
@@ -33,16 +38,7 @@ Edit Home
                       <input class="form-control" id="headerRow1" name="headerRow1" placeholder="heading" type="text" value="{{$home->headerRow1}}">
                     </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">bg img 1</label>
-                      <input class="form-control" id="exampleInputPassword1" name="bgImageRow1" placeholder="caption" type="file">
-                      <input class="form-control" id="exampleInputPassword1" name="oldImgBgRow1" placeholder="caption" type="hidden" value="{{$home->bgImageRow1}}">
-                      <!-- <input name="oldVideoIcon" value="{{$home->videoIcon}}" type="hidden"> -->
-
-                        <img src="{{url('saved_images/home')}}/{{$home->bgImageRow1}}">
-                    </div>
-                  </div>
+                  
 
                   <div class="col-md-6">
                     <div class="form-group">
@@ -58,16 +54,7 @@ Edit Home
                     </div>
                   </div>
 
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="exampleInputFile">Video Icon</label>
-                      <input id="exampleInputFile" name="videoIcon" type="file">
-                      <input name="oldVideoIcon" value="{{$home->videoIcon}}" type="hidden">
-                      <img src="{{url('saved_images/home')}}/{{$home->videoIcon}}">
-
-                      <p class="help-block">max size MB</p>
-                    </div>
-                  </div>
+                  
 
                   <div class="col-md-6">
                     <div class="form-group">
@@ -76,10 +63,52 @@ Edit Home
                     </div>
                   </div>
 
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                     <div class="form-group">
                       <label for="exampleInputPassword1">Video caption</label>
                       <input class="form-control" id="exampleInputPassword1" placeholder="video caption" type="text" name="videoText" value="{{$home->videoText}}">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <!-- <label for="exampleInputPassword1">Background Image</label> -->
+                      <input class="form-control" id="exampleInputPassword1" name="oldImgBgRow1" placeholder="caption" type="hidden" value="{{$home->bgImageRow1}}">
+                      <div class="box box-default">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Background Image</h3>
+                          <div class="box-tools pull-right">
+                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                          </div><!-- /.box-tools -->
+                        </div><!-- /.box-header -->
+                        <div class="box-body txt-center">
+                          <input class="" id="exampleInputPassword1" name="bgImageRow1" placeholder="caption" type="file">
+                          <br/>
+                          <img src="{{url('saved_images/home')}}/{{$home->bgImageRow1}}">
+                        </div><!-- /.box-body -->
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <!-- <label for="exampleInputFile">Video Icon</label> -->
+                      <div class="box box-default">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">Video Icon</h3>
+                          <div class="box-tools pull-right">
+                            <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                          </div><!-- /.box-tools -->
+                        </div><!-- /.box-header -->
+                        <div class="box-body txt-center">
+                          <input id="exampleInputFile" name="videoIcon" type="file">
+                          <br/>
+                          <input name="oldVideoIcon" value="{{$home->videoIcon}}" type="hidden">
+                          <img src="{{url('saved_images/home')}}/{{$home->videoIcon}}">
+                        </div><!-- /.box-body -->
+                      </div>
+
+                      <!-- <p class="help-block">max size MB</p> -->
                     </div>
                   </div>
 
@@ -124,10 +153,22 @@ Edit Home
                   <input class="form-control" id="exampleInputPassword1" placeholder="text 2 row 2" type="text" name="text2Row2" value="{{$home->text2Row2}}">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">bg img 2</label>
-                  <input class="form-control" id="exampleInputPassword1" placeholder="bg img 1" name="bgImageRow2" type="file" value="">
+                  <!-- <label for="exampleInputPassword1">bg img 2</label> -->
                   <input class="form-control" id="exampleInputPassword1" name="oldImgBgRow2" placeholder="caption" type="hidden" value="{{$home->bgImageRow2}}">
+                      
+                  <div class="box box-default">
+                    <div class="box-header with-border">
+                      <h3 class="box-title">Background Image</h3>
+                      <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                      </div><!-- /.box-tools -->
+                    </div><!-- /.box-header -->
+                    <div class="box-body txt-center">
+                      <input class="" id="exampleInputPassword1" placeholder="bg img 1" name="bgImageRow2" type="file" value="">
+                      <br/>
                       <img src="{{url('saved_images/home')}}/{{$home->bgImageRow2}}">
+                    </div><!-- /.box-body -->
+                  </div>
 
                 </div>
               </div>
@@ -160,21 +201,6 @@ Edit Home
             </div>
           </div>
         </div>
-        text header tier 1 : {{$home->headerRow1}}<br/>
-        text left tier 1 : {{$home->text1Row1}}<br/>
-        text right tier 1 : {{$home->text2Row1}}<br/>
-        video icon : {{$home->videoIcon}}<br/>
-        video texxt : {{$home->videoText}}<br/>
-        url vid : {{$home->videoUrl}}<br/>
-        bg image tier 1: {{$home->bgImageRow1}}<br/>
-        product price : {{$home->productPrice}}<br/>
-        product name : {{$home->productName}}<br/>
-        unit type : {{$home->unitType}}<br/>
-        text 1 row 2 : {{$home->text1Row2}}<br/>
-        text 2 row 2 : {{$home->text2Row2}}<br/>
-        bg image tier 2 : {{$home->bgImageRow2}}<br/>
-        tag porto : {{$home->portfolioTag}}<br/>
-        image porto : {{$home->portfolioImage}}
       </section>
     </section>
 

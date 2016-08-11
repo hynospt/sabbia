@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="{{url('assets')}}/css/vendor/plugins/datepicker/datepicker3.css">
 	<link rel="stylesheet" href="{{url('assets')}}/css/vendor/plugins/daterangepicker/daterangepicker.css">
 	<link rel="stylesheet" href="{{url('assets')}}/css/vendor/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+	<link rel="stylesheet" href="{{url('assets')}}/css/style.css">
 
 	@yield('loadCss')
 

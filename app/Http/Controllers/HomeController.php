@@ -93,6 +93,7 @@ class HomeController extends Controller
         $home->portfolioImage = $request->input('portfolioImage');
         $home->save();
 
+        flash('Succesfully Updated', 'success');
         return redirect()->back();
     }
 }
