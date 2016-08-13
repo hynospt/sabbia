@@ -38,12 +38,14 @@ class LegalController extends Controller
             'subTitle2'     => 'required',
             'subContent1'   => 'required',
             'subContent2'   => 'required',
-            'image1'        => 'required|mimes:png,jpg,jpeg',
-            'image2'        => 'required|mimes:png,jpg,jpeg'
+            'image1'        => 'mimes:png,jpg,jpeg',
+            'image2'        => 'mimes:png,jpg,jpeg'
         ];
 
         $validator = Validator::make($request->all() , $rules);
         if($validator->fails()){
+            // print_r($validator->messages());
+            // exit;
             flash('Oops, Something Went Wrong!', 'danger');
             return redirect()->back()->withInput()->withErrors($validator->messages());
         }
@@ -82,6 +84,8 @@ class LegalController extends Controller
         $legal->subContent1 = $request->input('subContent1');
         $legal->subContent2 = $request->input('subContent2');
         $legal->save();
+
+        flash('Successfully Update', 'success');
 
     	return redirect()->back();
     }

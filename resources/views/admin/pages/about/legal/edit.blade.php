@@ -6,21 +6,7 @@ Edit Legal
 
 @section('body')
   <div class="content-wrapper">
-    @if (session()->has('flash_notification.message'))
-      <div class="alert alert-{{ session('flash_notification.level') }}">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-
-          {!! session('flash_notification.message') !!}
-          <ul style="list-style:none;">
-            <li><B>Errors: </B></li>
-          </uil>
-          <ul>
-            @foreach($errors->messages() as $key=>$value)
-              <li>{!! sprintf("%s - %s", $key, $value[0]) !!}</li>
-            @endforeach
-          </ul>
-      </div>
-    @endif
+    @include('errors.formErrors')
     <section class="content-header">
       <h1>
         Edit Legal
@@ -86,18 +72,36 @@ Edit Legal
                   </div>
 
                   <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Image 1</label>
-                      <input type="file" name="image1">
-                      <input type="hidden" name="image1_old" value="{{$legal->image1}}">
+                    <div class="box box-default">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Image I</h3>
+                        <div class="box-tools pull-right">
+                          <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div><!-- /.box-tools -->
+                      </div><!-- /.box-header -->
+                      <div class="box-body txt-center">
+                        <input type="file" name="image1">
+                        <input type="hidden" name="image1_old" value="{{$legal->image1}}">
+                        <br/>
+                        <img src="{{url('saved_images/legal')}}/{{$legal->image1}}">
+                      </div><!-- /.box-body -->
                     </div>
                   </div>
 
                   <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Image 2</label>
-                      <input type="file" name="image2">
-                      <input type="hidden" name="image2_old" value="{{$legal->image2}}">
+                    <div class="box box-default">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Image II</h3>
+                        <div class="box-tools pull-right">
+                          <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div><!-- /.box-tools -->
+                      </div><!-- /.box-header -->
+                      <div class="box-body txt-center">
+                        <input type="file" name="image2">
+                        <input type="hidden" name="image2_old" value="{{$legal->image2}}">
+                        <br/>
+                        <img src="{{url('saved_images/legal')}}/{{$legal->image2}}">
+                      </div><!-- /.box-body -->
                     </div>
                   </div>
 
