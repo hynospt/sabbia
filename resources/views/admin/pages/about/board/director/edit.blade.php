@@ -6,21 +6,7 @@ Edit Director
 
 @section('body')
   <div class="content-wrapper">
-    @if (session()->has('flash_notification.message'))
-      <div class="alert alert-{{ session('flash_notification.level') }}">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-
-          {!! session('flash_notification.message') !!}
-          <ul style="list-style:none;">
-            <li><B>Errors: </B></li>
-          </uil>
-          <ul>
-            @foreach($errors->messages() as $key=>$value)
-              <li>{!! sprintf("%s - %s", $key, $value[0]) !!}</li>
-            @endforeach
-          </ul>
-      </div>
-    @endif
+    @include('errors.formErrors')
     <section class="content-header">
       <h1>
         Edit Director
@@ -40,7 +26,7 @@ Edit Director
                 <h3 class="box-title">Edit Director Form</h3>
               </div>
               
-              <form name="directorUpdateForm" action="{{action('DirectorController@update')}}" method="post">
+              <form name="directorUpdateForm" action="{{action('DirectorController@update')}}" method="post" enctype="multipart/form-data">
                 <div class="box-body">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                   <input type="hidden" name="board_id" value="1">
@@ -64,6 +50,24 @@ Edit Director
                       {{ Form::textarea('text',$director->text,['class'=>'form-control','placeholder'=>'content']) }}
                     </div>
                   </div>
+
+                  <div class="col-md-12">
+                    <div class="box box-default">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Photo</h3>
+                        <div class="box-tools pull-right">
+                          <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div><!-- /.box-tools -->
+                      </div><!-- /.box-header -->
+                      <div class="box-body txt-center">
+                        <input type="file" name="photo">
+                        <input type="hidden" name="photo_old" value="{{$director->photo}}">
+                        <br/>
+                        <img src="{{url('saved_images/directors')}}/{{$director->photo}}">
+                      </div><!-- /.box-body -->
+                    </div>
+                  </div>
+
                 </div>
                 <div class="box-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>

@@ -59,20 +59,38 @@ Edit Chain
                   </div>
 
                   <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Image 1</label>
-                      <input type="file" name="image1">
-                      <input type="hidden" name="image1_old" value="{{$chain->image1}}">
+                    <div class="box box-default">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Image I</h3>
+                        <div class="box-tools pull-right">
+                          <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div><!-- /.box-tools -->
+                      </div><!-- /.box-header -->
+                      <div class="box-body txt-center">
+                        <input type="file" name="image1">
+                        <input type="hidden" name="image1_old" value="{{$chain->image1}}"><br/>
+                        <img src="{{url('saved_images/chain')}}/{{$chain->image1}}">
+                      </div><!-- /.box-body -->
                     </div>
                   </div>
 
                   <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Image 2</label>
-                      <input type="file" name="image2">
-                      <input type="hidden" name="image2_old" value="{{$chain->image2}}">
+                    <div class="box box-default">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Image II</h3>
+                        <div class="box-tools pull-right">
+                          <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div><!-- /.box-tools -->
+                      </div><!-- /.box-header -->
+                      <div class="box-body txt-center">
+                        <input type="file" name="image2">
+                        <input type="hidden" name="image2_old" value="{{$chain->image2}}"><br/>
+                        <img src="{{url('saved_images/chain')}}/{{$chain->image2}}">
+                      </div><!-- /.box-body -->
                     </div>
-                  </div>
+                  </div>  
+
+                  
 
                 </div>
                 <div class="box-footer">

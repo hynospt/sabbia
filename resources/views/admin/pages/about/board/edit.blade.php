@@ -37,18 +37,35 @@ Edit Board
                   </div>
 
                   <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Main Background</label>
-                      <input type="file" name="mainBgImage">
-                      <input type="hidden" name="mainBgImage_old" value="{{$board->mainBgImage}}">
+                    <div class="box box-default">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Main Background</h3>
+                        <div class="box-tools pull-right">
+                          <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div><!-- /.box-tools -->
+                      </div><!-- /.box-header -->
+                      <div class="box-body txt-center">
+                        <input type="file" name="mainBgImage">
+                        <input type="hidden" name="mainBgImage_old" value="{{$board->mainBgImage}}">
+                        <br/>
+                        <img src="{{url('saved_images/about')}}/{{$board->mainBgImage}}">
+                      </div><!-- /.box-body -->
                     </div>
                   </div>
 
                   <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Main Logo</label>
-                      <input type="file" name="mainLogo">
-                      <input type="hidden" name="mainLogo_old" value="{{$board->mainLogo}}">
+                    <div class="box box-default">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Main Logo</h3>
+                        <div class="box-tools pull-right">
+                          <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div><!-- /.box-tools -->
+                      </div><!-- /.box-header -->
+                      <div class="box-body txt-center">
+                        <input type="file" name="mainLogo">
+                        <input type="hidden" name="mainLogo_old" value="{{$board->mainLogo}}"><br/>
+                        <img src="{{url('saved_images/about')}}/{{$board->mainLogo}}">
+                      </div><!-- /.box-body -->
                     </div>
                   </div>
 
@@ -109,10 +126,19 @@ Edit Board
                   </div>
 
                   <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Philosoppy Image</label>
-                      <input type="file" name="philosophyImg">
-                      <input type="hidden" name="philosophyImg_old" value="{{$board->philosophyImg}}">
+                    <div class="box box-default">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Philosoppy Image</h3>
+                        <div class="box-tools pull-right">
+                          <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div><!-- /.box-tools -->
+                      </div><!-- /.box-header -->
+                      <div class="box-body txt-center">
+                        <input type="file" name="philosophyImg">
+                        <input type="hidden" name="philosophyImg_old" value="{{$board->philosophyImg}}">
+                        <br/>
+                        <img src="{{url('saved_images/about')}}/{{$board->philosophyImg}}">
+                      </div><!-- /.box-body -->
                     </div>
                   </div>
 

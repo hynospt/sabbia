@@ -38,6 +38,7 @@ class ServiceController extends Controller
             flash('Oops, Something Went Wrong!', 'danger');
             return redirect()->back()->withInput()->withErrors($update);
         }
+            flash("Successfully Updated", 'success');
             return redirect()->back();
     }
 
@@ -81,7 +82,7 @@ class ServiceController extends Controller
         $icon->tag = $request->input('tag');
 
         $icon->save();
-
+        flash('Successfully Created', 'success');
     	return redirect()->back();
     }
 
@@ -109,8 +110,8 @@ class ServiceController extends Controller
         $coverImage_old = $request->input('coverImage_old');
 
         $rules = [
-            'bgImage' => 'required|mimes:png,jpg,jpeg',
-            'coverImage' => 'required|mimes:png,jpg,jpeg',
+            'bgImage' => 'mimes:png,jpg,jpeg',
+            'coverImage' => 'mimes:png,jpg,jpeg',
             'tag' => 'required',
         ];
 
@@ -148,11 +149,33 @@ class ServiceController extends Controller
         }
         $serviceIcon->tag = $request->input('tag');
     	$serviceIcon->save();
+        flash('Successfully Updated' , 'success');
     	return redirect()->back();
     }
 
     public function icon_delete($id){
-        $icon = Icon::destroy($id);
+        $icon = Icon::find($id);
+        $backgroundimage = $icon->bgImage;
+        $coverimage = $icon->coverImage;
+
+        $path = public_path('saved_images/services');
+
+        if($backgroundimage){
+            $delPath = $path.'/'.$backgroundimage;
+            if(file_exists($delPath)){
+                unlink($delPath);
+            }
+        }
+
+        if($coverimage){
+            $delPath = $path.'/'.$backgroundimage;
+            if(file_exists($delPath)){
+                unlink($delPath);
+            }
+        }
+
+        $iconDlt = Icon::destroy($id);
+        flash('Successfully Deleted', 'success');
         return redirect()->back();
     }
 }

@@ -10,7 +10,7 @@ Service Icon
 
 @section('body')
   <div class="content-wrapper">
-    
+    @include('errors.formErrors')
     <section class="content-header">
       <h1>
         Service Icon

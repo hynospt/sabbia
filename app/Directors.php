@@ -23,6 +23,7 @@ class Directors extends ExtendedModel
         'fullname'=>'required',
         'text'=>'required',
         'role'=>'required',
+        'photo'=>'mimes:png,jpg,jpeg'
     ];
 
     public static $custom_attributes = [

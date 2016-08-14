@@ -6,21 +6,7 @@ Edit Portfolio
 
 @section('body')
   <div class="content-wrapper">
-    @if (session()->has('flash_notification.message'))
-      <div class="alert alert-{{ session('flash_notification.level') }}">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-
-          {!! session('flash_notification.message') !!}
-          <ul style="list-style:none;">
-            <li><B>Errors: </B></li>
-          </uil>
-          <ul>
-            @foreach($errors->messages() as $key=>$value)
-              <li>{!! sprintf("%s - %s", $key, $value[0]) !!}</li>
-            @endforeach
-          </ul>
-      </div>
-    @endif
+    @include('errors.formErrors')
     <section class="content-header">
       <h1>
         Edit Portfolio
@@ -45,20 +31,41 @@ Edit Portfolio
                   <input type="hidden" name="pageId" value="1">
                   <input type="hidden" name="id" value="{{$item->id}}">
                   
+
                   <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Partner Logo</label>
-                      <input class="" name="partnerLogo" type="file">
-                      <input name="partnerLogo_old" value="{{$item->partnerLogo}}"/>
+                    <div class="box box-default">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Background Image</h3>
+                        <div class="box-tools pull-right">
+                          <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div><!-- /.box-tools -->
+                      </div><!-- /.box-header -->
+                      <div class="box-body txt-center">
+                        <input class="" name="partnerBackgroundImage" type="file">
+                        <input type="hidden" name="partnerBackgroundImage_old" value="{{$item->partnerBackgroundImage}}"/>
+                        <br/>
+                        <img src="{{url('saved_images/portfolio/item')}}/{{$item->partnerBackgroundImage}}">
+                      </div><!-- /.box-body -->
                     </div>
                   </div>
+
                   <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Background Image</label>
-                      <input class="" name="partnerBackgroundImage" type="file">
-                    <input name="partnerBackgroundImage_old" value="{{$item->partnerBackgroundImage}}"/>
+                    <div class="box box-default">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Partner Logo</h3>
+                        <div class="box-tools pull-right">
+                          <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div><!-- /.box-tools -->
+                      </div><!-- /.box-header -->
+                      <div class="box-body txt-center">
+                        <input class="" name="partnerLogo" type="file">
+                        <input ty=e"hidden name="partnerLogo_old" value="{{$item->partnerLogo}}"/>
+                        <br/>
+                        <img src="{{url('saved_images/portfolio/item')}}/{{$item->partnerLogo}}">
+                      </div><!-- /.box-body -->
                     </div>
                   </div>
+
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Content</label>

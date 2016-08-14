@@ -6,21 +6,7 @@ Edit Service Icon
 
 @section('body')
   <div class="content-wrapper">
-    @if (session()->has('flash_notification.message'))
-      <div class="alert alert-{{ session('flash_notification.level') }}">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-
-          {!! session('flash_notification.message') !!}
-          <ul style="list-style:none;">
-            <li><B>Errors: </B></li>
-          </uil>
-          <ul>
-            @foreach($errors->messages() as $key=>$value)
-              <li>{!! sprintf("%s - %s", $key, $value[0]) !!}</li>
-            @endforeach
-          </ul>
-      </div>
-    @endif
+    @include('errors.formErrors')
     <section class="content-header">
       <h1>
         Edit Service Icon
@@ -45,21 +31,42 @@ Edit Service Icon
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                   <input type="hidden" name="services_id" value="1">
                   <input type="hidden" name="id" value="{{$icon->id}}">
-                  
+
                   <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Background Image</label>
-                      <input class="" name="bgImage" type="file">
-                      <input name="bgImage_old" value="{{$icon->bgImage}}"/>
+                    <div class="box box-default">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Background Image</h3>
+                        <div class="box-tools pull-right">
+                          <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div><!-- /.box-tools -->
+                      </div><!-- /.box-header -->
+                      <div class="box-body txt-center">
+                        <input class="" name="bgImage" type="file">
+                        <input type="hidden" name="bgImage_old" value="{{$icon->bgImage}}"/>
+                        <br/>
+                        <img src="{{url('saved_images/services')}}/{{$icon->bgImage}}">
+                      </div><!-- /.box-body -->
                     </div>
                   </div>
+
                   <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Cover Image</label>
-                      <input class="" name="coverImage" type="file">
-                    <input name="coverImage_old" value="{{$icon->coverImage}}"/>
+                    <div class="box box-default">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Cover Image</h3>
+                        <div class="box-tools pull-right">
+                          <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div><!-- /.box-tools -->
+                      </div><!-- /.box-header -->
+                      <div class="box-body txt-center">
+                        <input class="" name="coverImage" type="file">
+                        <input type="hidden" name="coverImage_old" value="{{$icon->coverImage}}"/>
+                        <br/>
+                        <img src="{{url('saved_images/services')}}/{{$icon->coverImage}}">
+                      </div><!-- /.box-body -->
                     </div>
                   </div>
+
+
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Content</label>

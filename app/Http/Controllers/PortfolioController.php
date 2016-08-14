@@ -35,8 +35,8 @@ class PortfolioController extends Controller
         $rules = [
             'title' => 'required',
             'partners' => 'required',
-            'bgImage' => 'required|mimes:png,jpg,jpeg',
-            'logo' => 'required|mimes:png,jpg,jpeg',
+            'bgImage' => 'mimes:png,jpg,jpeg',
+            'logo' => 'mimes:png,jpg,jpeg',
             'lastRowTitle' => 'required'
         ];
 
@@ -74,6 +74,7 @@ class PortfolioController extends Controller
         $portfolio->lastRowTitle = $request->input('lastRowTitle');
         $portfolio->title = $request->input('title');
         $portfolio->save();
+        flash('Successfully Updated', 'success');
     	return redirect()->back();
     }
 
@@ -90,8 +91,8 @@ class PortfolioController extends Controller
         $logo = $request->file('partnerLogo');
         $oldBg = $request->input('partnerBackgroundImage_old');
         $rules = [
-            'partnerBackgroundImage' => 'required|mimes:png,jpg,jpeg',
-            'partnerLogo' => 'required|mimes:png,jpg,jpeg',
+            'partnerBackgroundImage' => 'mimes:png,jpg,jpeg',
+            'partnerLogo' => 'mimes:png,jpg,jpeg',
             'partnerContent' => 'required',
             'partnerCompanyName' => 'required'
         ];
@@ -129,6 +130,8 @@ class PortfolioController extends Controller
         $item->partnerCompanyName = $request->input('partnerCompanyName');
 
     	$item->save();
+        flash('Successfully Updated', 'success');
+
     	return redirect()->back();
     }
 
@@ -176,11 +179,33 @@ class PortfolioController extends Controller
 
     	$item->save();
 
+        flash('Successfully Created', 'success');
+
     	return redirect()->back();
     }
 
     public function item_delete($id){
+        $item = Item::find($id);
+        $logo = $item->logo;
+        $bg = $item->bgImage;
+        $path = public_path('saved_images/portfolio/item');
+
+        if($logo){
+            $delPath = $path.'/'.$logo;
+            if(file_exists($delPath)){
+                unlink($delPath);
+            }
+        }
+
+        if($bg){
+            $delPath = $path.'/'.$bg;
+            if(file_exists($delPath)){
+                unlink($delPath);
+            }
+        }
+
         $item = Item::destroy($id);
+        flash('Successfully Deleted', 'success');
         return redirect()->back();
     }
 

@@ -6,21 +6,7 @@ Add Director
 
 @section('body')
   <div class="content-wrapper">
-    @if (session()->has('flash_notification.message'))
-      <div class="alert alert-{{ session('flash_notification.level') }}">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-
-          {!! session('flash_notification.message') !!}
-          <ul style="list-style:none;">
-            <li><B>Errors: </B></li>
-          </uil>
-          <ul>
-            @foreach($errors->messages() as $key=>$value)
-              <li>{!! sprintf("%s - %s", $key, $value[0]) !!}</li>
-            @endforeach
-          </ul>
-      </div>
-    @endif
+    @include('errors.formErrors')
     <section class="content-header">
       <h1>
         Add Director
@@ -40,7 +26,7 @@ Add Director
                 <h3 class="box-title">Add Director Form</h3>
               </div>
               
-              <form role="form" name="addDirectorForm" action="store" method="post">
+              <form role="form" name="addDirectorForm" action="store" method="post" enctype="multipart/form-data">
                 <div class="box-body">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                   <input type="hidden" name="board_id" value="1">
@@ -51,6 +37,14 @@ Add Director
                       {{ Form::text('fullname',null,['class'=>'form-control','placeholder'=>'fullname']) }}
                     </div>
                   </div>
+
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Photo</label>
+                      <input type="file" name="photo">
+                    </div>
+                  </div>
+
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Role</label>

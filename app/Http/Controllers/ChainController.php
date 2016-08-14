@@ -30,8 +30,8 @@ class ChainController extends Controller
             'content1'     => 'required',
             'title2'     => 'required',
             'content2'     => 'required',
-            'image1'        => 'required|mimes:png,jpg,jpeg',
-            'image2'        => 'required|mimes:png,jpg,jpeg'
+            'image1'        => 'mimes:png,jpg,jpeg',
+            'image2'        => 'mimes:png,jpg,jpeg'
         ];
 
         $validator = Validator::make($request->all() , $rules);
@@ -73,6 +73,7 @@ class ChainController extends Controller
         $chain->content2 = $request->input('content2');
         $chain->save();
 
+        flash('Sucessfully updated', 'success');
     	return redirect()->back();
     }
 }

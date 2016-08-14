@@ -46,8 +46,8 @@ class AboutController extends Controller
 
         $rules = [
             'mainTag' => 'required',
-            'mainBgImage' => 'required|mimes:jpg,png,jpeg',
-            'mainLogo' => 'required|mimes:jpg,png,jpeg',
+            'mainBgImage' => 'mimes:jpg,png,jpeg',
+            'mainLogo' => 'mimes:jpg,png,jpeg',
             'titleRow2' => 'required',
             'titleRow3' => 'required',
             'contentRow3' => 'required',
@@ -56,7 +56,7 @@ class AboutController extends Controller
             'videoCaption1' => 'required',
             'videoCaption2' => 'required',
             'text2Row2' => 'required',
-            'philosophyImg' => 'required|mimes:jpg,png,jpeg',
+            'philosophyImg' => 'mimes:jpg,png,jpeg',
             'philosophyTitle' => 'required',
             'philosophyContent' => 'required',
         ]; 
@@ -122,7 +122,7 @@ class AboutController extends Controller
         $board->philosophyTitle = $request->input('philosophyTitle');
         $board->philosophyContent = $request->input('philosophyContent');
         $board->save();
-
+        flash('Sucessfully Updated', 'success');
     	return redirect()->back();
     }
 }
