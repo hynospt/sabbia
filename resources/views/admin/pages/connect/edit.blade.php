@@ -6,21 +6,7 @@ Connect Edit
 
 @section('body')
   <div class="content-wrapper">
-    @if (session()->has('flash_notification.message'))
-      <div class="alert alert-{{ session('flash_notification.level') }}">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-
-          {!! session('flash_notification.message') !!}
-          <ul style="list-style:none;">
-            <li><B>Errors: </B></li>
-          </uil>
-          <ul>
-            @foreach($errors->messages() as $key=>$value)
-              <li>{!! sprintf("%s - %s", $key, $value[0]) !!}</li>
-            @endforeach
-          </ul>
-      </div>
-    @endif
+    @include('errors.formErrors')
     <section class="content-header">
       <h1>
         Connect Edit
@@ -50,11 +36,22 @@ Connect Edit
                     <label for="exampleInputPassword1">Page Content</label>
                     <input class="form-control" id="exampleInputPassword1" placeholder="page content" type="text" name="content" value="{{$connect->content}}">
                   </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Background Image</label>
-                    <input type="file" name="bgImage">
-                    <input type="hidden" name="bgImage_old" value="{{$connect->bgImage}}">
+
+                  <div class="box box-default">
+                    <div class="box-header with-border">
+                      <h3 class="box-title">Background Image</h3>
+                      <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                      </div><!-- /.box-tools -->
+                    </div><!-- /.box-header -->
+                    <div class="box-body txt-center">
+                      <input type="file" name="bgImage">
+                      <input type="hidden" name="bgImage_old" value="{{$connect->bgImage}}">
+                      <br/>
+                      <img src="{{url('saved_images/connect')}}/{{$connect->bgImage}}">
+                    </div><!-- /.box-body -->
                   </div>
+
                 </div>
               
               <div class="box-footer">

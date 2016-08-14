@@ -29,7 +29,7 @@ class ConnectController extends Controller
         $bgimg = $request->file('bgImage');
         $bgimgold = $request->file('bgImg_old');
         $rules = [
-            'bgImage' => 'required|mimes:png,jpg,jpeg',
+            'bgImage' => 'mimes:png,jpg,jpeg',
             'content' => 'required',
             'title' => 'required',
         ];
@@ -57,6 +57,7 @@ class ConnectController extends Controller
         $connect->content = $request->input('content');
         $connect->title = $request->input('title');
         $connect->save();
+        flash('Successfully Updated', 'success');
     	return redirect()->back();
     }
 }

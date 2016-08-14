@@ -68,6 +68,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/connect/edit' , 'ConnectController@edit');
     Route::post('/connect/update' , 'ConnectController@update');
 
+    Route::get('/profile/edit/{id}', 'ProfileController@edit');
+    Route::post('/profile/update', 'ProfileController@update');
+    Route::post('/profile/update_password', 'ProfileController@update_password');
 
 	Route::get('/profile', function () {
 	    return 'profile bos';

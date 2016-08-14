@@ -22,7 +22,7 @@
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="{{url('saved_images/user')}}/{{Auth::user()->photo}}" class="img-circle" alt="User Image">
                 <?php
                   $dateCreated = strtotime(Auth::user()->created_at);
                   $created_at = date("Y. M");
@@ -35,17 +35,17 @@
               
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="profile/{{Auth::user()->id}}" class="btn btn-default btn-flat">Profile</a>
+                  <a href="{{url('profile/edit', Auth::user()->id)}}" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="logout" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="{{url('logout')}}" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
           <li>
-            <a href="profile/edit/{{Auth::user()->id}}"><i class="fa fa-gears"></i></a>
+            <a href="{{url('profile/edit', Auth::user()->id)}}"><i class="fa fa-gears"></i></a>
           </li>
         </ul>
       </div>

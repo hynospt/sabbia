@@ -5,23 +5,15 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="{{url('saved_images/user')}}/{{Auth::user()->photo}}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>{{Auth::user()->name}}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
-      <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-      </form>
+     
+     
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
@@ -53,30 +45,17 @@
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="#"><i class="fa fa-folder-o"></i> Board</a>
-              <ul class="treeview-menu">
-                <li>
-                  <a href="#">
-                    <i class="fa fa-folder-o"></i> Director
-                  </a>
-                  <ul class="treeview-menu">
-                    <li>
-                      <a href="{{url('about/directors/create')}}">
-                        <i class="fa fa-plus"></i> Add Director
-                      </a>
-                      <a href="{{url('about/directors')}}">
-                        <i class="fa fa-pencil-square-o"></i> Modify Director
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="{{url('about/board/1')}}">
-                    <i class="fa fa-file-o"></i> View Page
-                  </a>
-                </li>
-                
-              </ul>
+              <a href="#"><i class="fa fa-folder-o"></i> Director</a>
+                <ul class="treeview-menu">
+                  <li>
+                    <a href="{{url('about/directors/create')}}">
+                      <i class="fa fa-plus"></i> Add Director
+                    </a>
+                    <a href="{{url('about/directors')}}">
+                      <i class="fa fa-pencil-square-o"></i> Modify Director
+                    </a>
+                  </li>
+                </ul>
             </li>
 
             <li><a href="{{url('about/legal/edit')}}"><i class="fa fa-pencil-square-o"></i> Legal</a></li>
