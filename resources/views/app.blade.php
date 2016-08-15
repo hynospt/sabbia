@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="{{url('assets')}}/css/vendor/plugins/datepicker/datepicker3.css">
 	<link rel="stylesheet" href="{{url('assets')}}/css/vendor/plugins/daterangepicker/daterangepicker.css">
 	<link rel="stylesheet" href="{{url('assets')}}/css/vendor/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+	<link rel="stylesheet" href="{{url('assets')}}/plugins/summernote/summernote.css">
 	<link rel="stylesheet" href="{{url('assets')}}/css/style.css">
 
 	@yield('loadCss')
@@ -63,7 +64,16 @@
 	<script src="{{url('assets')}}/js/vendor/dist/app.min.js"></script>
 	<script src="{{url('assets')}}/js/vendor/dist/pages/dashboard.js"></script>
 	<script src="{{url('assets')}}/js/vendor/dist/demo.js"></script>
+	<script src="{{url('assets')}}/plugins/summernote/summernote.min.js"></script>
 
 	@yield('scriptJs')
+
+	<script type="text/javascript">
+	    $(document).ready(function() {
+	        $('textarea').summernote({
+	        	height: 200
+	        });
+	    });
+	</script>
 </body>
 </html>
