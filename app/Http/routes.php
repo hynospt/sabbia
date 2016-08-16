@@ -12,7 +12,31 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('front.pages.home');
+});
+
+Route::get('/about', function () {
+    return view('front.pages.about');
+});
+
+Route::get('/services', function () {
+    return view('front.pages.service');
+});
+
+Route::get('/portfolio', function () {
+    return view('front.pages.portfolio');
+});
+
+Route::get('/connect', function () {
+    return view('front.pages.connect');
+});
+
+Route::get('/legal', function () {
+    return view('front.pages.legal');
+});
+
+Route::get('/chain', function () {
+    return view('front.pages.chain');
 });
 
 Route::auth();
@@ -54,7 +78,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/service/icon' , 'ServiceController@icon_index');
 
     Route::get('/portfolio/edit' , 'PortfolioController@edit');
-    Route::get('/portfolio' , 'PortfolioController@index');
+    // Route::get('/portfolio' , 'PortfolioController@index');
     Route::post('/portfolio/update' , 'PortfolioController@update');
 
     Route::get('/portfolio/item/edit/{id}' , 'PortfolioController@item_edit');
@@ -64,7 +88,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/portfolio/item/store' , 'PortfolioController@item_store');
     Route::get('/portfolio/item' , 'PortfolioController@item_index');
 
-    Route::get('/connect' , 'ConnectController@index');
+    // Route::get('/connect' , 'ConnectController@index');
     Route::get('/connect/edit' , 'ConnectController@edit');
     Route::post('/connect/update' , 'ConnectController@update');
 
