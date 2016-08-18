@@ -31,39 +31,11 @@
 
         <!-- JavaScript & Jquery --> 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <!-- Increasing Number -->
         <script src="{{url('assets')}}/sabbia/js/jquery.animateNumber.js"></script>
-        <script>
-            $(window).scroll(function() {
-            if ($('#increasing').is(':visible')) {
-                var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
-                    $('#increasing').animateNumber(
-                      {
-                        number: 1230000000,
-                        numberStep: comma_separator_number_step
-                      }
-                    );
-                }
-            });
-            if($(window).width() < 1200){
-                if ($('#increasing').is(':visible')) {
-                var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
-                    $('#increasing').animateNumber(
-                      {
-                        number: 1230000000,
-                        numberStep: comma_separator_number_step
-                      }
-                    );
-                }
-            }
-            $("a[href='#top']").click(function() {
-                  $("html, body").animate({ scrollTop: 0 }, "slow");
-                  return false;
-            });
-        </script>
-        <!-- Bootstrap --> 
+
         <script src="{{url('assets')}}/sabbia/js/vendor/bootstrap.min.js"></script>
         <script src="{{url('assets')}}/sabbia/js/main.js"></script>
+        @yield('customScript')
 
     </body>
 

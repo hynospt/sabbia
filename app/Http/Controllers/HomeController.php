@@ -38,6 +38,15 @@ class HomeController extends Controller
         $path = public_path('saved_images/home');
         $videoIcon = $request->file('videoIcon');
         $oldVideoIcon = $request->input('oldVideoIcon');
+        $rules = [
+            'productPrice' => 'integer'
+        ];
+
+        $validator = Validator::make($request->all() , $rules);
+        if($validator->fails()){
+            flash('Oops, Something Went Wrong!', 'danger');
+            return redirect()->back()->withInput()->withErrors($validator->messages());
+        }
 
         if($videoIcon){
             $videoIconExtension = $videoIcon->getClientOriginalExtension();
@@ -79,6 +88,21 @@ class HomeController extends Controller
             }
             $home->bgImageRow2 = $bgImageRow2FileName;
         }
+
+        $portfolioImage = $request->file('portfolioImage');
+        $oldportfolio = $request->input('oldportfolio');
+        if($portfolioImage){
+            $portfolioName = 'portfolio'.date('YmdHis').$portfolioImage->getClientOriginalName();
+            $portfolioImage->move($path, $portfolioName);
+            if($oldportfolio){
+                $deleteImgBgRow2Path = $path.'/'.$oldportfolio;
+                if(file_exists($deleteImgBgRow2Path)){
+                    unlink($deleteImgBgRow2Path);
+                }
+            }
+            $home->portfolioImage = $portfolioName;
+        }
+
         $home->headerRow1 = $request->input('headerRow1');
         $home->text1Row1 = $request->input('text1Row1');
         $home->text2Row1 = $request->input('text2Row1');
@@ -90,7 +114,7 @@ class HomeController extends Controller
         $home->text1Row2 = $request->input('text1Row2');
         $home->text2Row2 = $request->input('text2Row2');
         $home->portfolioTag = $request->input('portfolioTag');
-        $home->portfolioImage = $request->input('portfolioImage');
+        // $home->portfolioImage = $request->input('portfolioImage');
         $home->save();
 
         flash('Succesfully Updated', 'success');
