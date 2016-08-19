@@ -14,26 +14,11 @@
 
 Route::get('/', 'FrontController@index_home');
 Route::get('/about', 'FrontController@index_about');
-
-Route::get('/services', function () {
-    return view('front.pages.service');
-});
-
-Route::get('/portfolio', function () {
-    return view('front.pages.portfolio');
-});
-
-Route::get('/connect', function () {
-    return view('front.pages.connect');
-});
-
-Route::get('/legal', function () {
-    return view('front.pages.legal');
-});
-
-Route::get('/chain', function () {
-    return view('front.pages.chain');
-});
+Route::get('/legal', 'FrontController@index_legal');
+Route::get('/chain', 'FrontController@index_chain');
+Route::get('/connect', 'FrontController@index_connect');
+Route::get('/services', 'FrontController@index_services');
+Route::get('/portfolio', 'FrontController@index_portfolio');
 
 Route::auth();
 

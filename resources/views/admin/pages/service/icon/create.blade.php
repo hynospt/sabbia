@@ -45,6 +45,12 @@ Create Service Icon Page
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
+                      <label for="exampleInputEmail1">Title</label>
+                      {{ Form::text('title',null,['class'=>'form-control','placeholder'=>'title']) }}
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
                       <label for="exampleInputEmail1">Content</label>
                       {{ Form::textarea('tag',null,['class'=>'form-control','placeholder'=>'tag']) }}
                     </div>

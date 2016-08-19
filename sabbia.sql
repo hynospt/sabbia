@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 14, 2016 at 03:00 PM
+-- Generation Time: Aug 19, 2016 at 11:01 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.5.37
 
@@ -99,7 +99,7 @@ CREATE TABLE `connect` (
 --
 
 INSERT INTO `connect` (`id`, `title`, `content`, `bgImage`, `created_at`, `updated_at`) VALUES
-(1, 'asdasd', 'z', 'bg20160814113922Ok-icon.png', '2016-07-30 20:01:12', '2016-08-14 11:42:48');
+(1, 'asdasd', 'zasdasd', 'bg20160814113922Ok-icon.png', '2016-07-30 20:01:12', '2016-08-19 21:00:25');
 
 -- --------------------------------------------------------
 
@@ -137,10 +137,9 @@ CREATE TABLE `directors` (
 --
 
 INSERT INTO `directors` (`id`, `board_id`, `fullname`, `photo`, `role`, `text`, `created_at`, `updated_at`) VALUES
-(4, 0, 'yono', '', 'yono', 'oyon', '2016-08-03 16:41:15', '2016-08-03 16:41:15'),
-(5, 0, 'yono', '', 'yono', 'oyon', '2016-08-03 16:42:57', '2016-08-03 16:42:57'),
-(13, 0, 'Joko Widodo', 'photo20160814051108Ok-icon.png', 'fasle', 'Lorem Ipsum LBa', '2016-08-14 05:11:08', '2016-08-14 05:11:08'),
-(16, 1, 'Goceng', 'photo20160814061251Ok-icon.png', 'fasle', 'Lorem Ipsum LBa', '2016-08-14 06:12:31', '2016-08-14 06:12:51');
+(16, 1, 'Goceng', 'photo20160814061251Ok-icon.png', 'fasle', 'Lorem Ipsum LBa', '2016-08-14 06:12:31', '2016-08-14 06:12:51'),
+(17, 1, 'Joko Widodo', 'photo20160819160617dummy-background-1.jpg', 'President', '<p>zxczxc<br></p>', '2016-08-19 16:06:17', '2016-08-19 16:06:17'),
+(18, 1, 'Sri Mulyani', 'photo20160819164804karaeng1.png', 'Seketaris', 'Lorem Ipsum LBa', '2016-08-19 16:48:04', '2016-08-19 16:48:04');
 
 -- --------------------------------------------------------
 
@@ -190,7 +189,7 @@ CREATE TABLE `homes` (
 --
 
 INSERT INTO `homes` (`id`, `headerRow1`, `text1Row1`, `text2Row1`, `videoIcon`, `videoText`, `videoUrl`, `bgImageRow1`, `productPrice`, `productName`, `unitType`, `text1Row2`, `text2Row2`, `bgImageRow2`, `portfolioTag`, `portfolioImage`, `created_at`, `updated_at`, `type`) VALUES
-(1, 'Product Name', 'Product Name', 'Product Name', 'vicon20160811181122dummy-picture-1.jpg', 'Product Name', 'Product Name', 'bg120160811181113Ok-icon.png', 'Caption Left', 'Caption Left', 'Caption Left', 'Caption dq', 'Caption asda', 'bg220160811181104Ok-icon.png', 'Caption Left', 'Product Name', '', '2016-08-11 18:11:22', 'Page');
+(1, 'Product Name', '<div align="left"><h6><i><font face="Courier New">Loreng Ingsum</font></i></h6></div>', '<i><font face="Courier New">Loreng Ingsum</font></i><p> asdasdasdasdads<br></p>', 'vicon20160811181122dummy-picture-1.jpg', 'Watch Our Story Here<br>', 'http://youtube.com', 'bg120160818152320bg1.jpg', '50000', 'Product Name', 'per Product', 'Caption dq', 'Caption asda', 'bg220160818154049bg2.jpg', '<p></p><h2>Every sector of the industry that is\r\n						in need of refined oil will be able to\r\n						engage with our services.\r\n					</h2><p></p><p><br></p><p></p>', 'portfolio20160818154825service2.jpg', '', '2016-08-18 15:59:00', 'Page');
 
 -- --------------------------------------------------------
 
@@ -217,7 +216,7 @@ CREATE TABLE `legal` (
 --
 
 INSERT INTO `legal` (`id`, `title`, `mainTitle`, `subTitle1`, `subTitle2`, `subContent1`, `subContent2`, `image1`, `image2`, `created_at`, `updated_at`) VALUES
-(1, 'z', 'asd', 'subContent1', 'subContent1', 'subContent1', 'subContent1', '1_img20160813170738dummy-picture-1.jpg', '2_img20160813170738dummy-background-1.jpg', '2016-07-29 19:29:42', '2016-08-13 17:28:59');
+(1, 'Legal', 'asd', 'subContent1', 'subContent1', 'subContent1', 'subContent1', '1_img20160813170738dummy-picture-1.jpg', '2_img20160813170738dummy-background-1.jpg', '2016-07-29 19:29:42', '2016-08-19 17:23:03');
 
 -- --------------------------------------------------------
 
@@ -235,6 +234,14 @@ CREATE TABLE `portfolios` (
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `portfolios`
+--
+
+INSERT INTO `portfolios` (`id`, `pageId`, `partnerLogo`, `partnerCompanyName`, `partnerContent`, `partnerBackgroundImage`, `created_at`, `updated_at`) VALUES
+(1, 1, 'logo20160819203901logo2.gif', 'Bukake', '<p>ini adalahas asdkasdkasdkadsl,asd<br></p>', 'bg20160819203901boatcrop.jpg', '2016-08-19 20:39:01', '2016-08-19 20:39:01'),
+(2, 1, 'logo20160819203939logo3.png', 'GGGGAZZZEJJJ', '<p>asdasdasdasdasdasd<br></p>', 'bg20160819203939bg2.jpg', '2016-08-19 20:39:39', '2016-08-19 20:39:39');
 
 -- --------------------------------------------------------
 
@@ -293,6 +300,7 @@ CREATE TABLE `service_icon` (
   `services_id` int(11) NOT NULL,
   `bgImage` varchar(255) NOT NULL,
   `coverImage` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
   `tag` varchar(255) NOT NULL,
   `created_at` varchar(255) NOT NULL,
   `updated_at` varchar(255) NOT NULL
@@ -302,10 +310,9 @@ CREATE TABLE `service_icon` (
 -- Dumping data for table `service_icon`
 --
 
-INSERT INTO `service_icon` (`id`, `services_id`, `bgImage`, `coverImage`, `tag`, `created_at`, `updated_at`) VALUES
-(35, 1, 'bg20160814082754dummy-picture-1.jpg', 'cover20160814082754Ok-icon.png', 'zxczxczxc', '2016-08-14 08:27:54', '2016-08-14 08:27:54'),
-(36, 1, 'bg20160814082808Ok-icon.png', 'cover20160814082808Ok-icon.png', 'zzz', '2016-08-14 08:28:08', '2016-08-14 08:28:08'),
-(37, 1, 'bg20160814082838dummy-background-1.jpg', 'cover20160814082838dummy-background-1.jpg', 'zxc', '2016-08-14 08:28:38', '2016-08-14 08:28:38');
+INSERT INTO `service_icon` (`id`, `services_id`, `bgImage`, `coverImage`, `title`, `tag`, `created_at`, `updated_at`) VALUES
+(42, 1, 'bg20160819182531service.jpg', 'cover20160819182531Accessability.png', 'Accesabilityz', '<p>asdaksdnasd asd a;.s,dpals,d;la ,sd<br></p>', '2016-08-19 18:25:31', '2016-08-19 18:25:31'),
+(43, 1, 'bg20160819182636bg2.jpg', 'cover20160819182636Assurance.png', 'Asuransi', '<p>AsuransiAsuransiAsuransiAsuransiAsuransiAsuransi<br><br><br><br><br><br><br></p>', '2016-08-19 18:26:36', '2016-08-19 18:26:36');
 
 -- --------------------------------------------------------
 
@@ -398,17 +405,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `directors`
 --
 ALTER TABLE `directors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `portfolios`
 --
 ALTER TABLE `portfolios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `service_icon`
 --
 ALTER TABLE `service_icon`
-  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 --
 -- AUTO_INCREMENT for table `users`
 --

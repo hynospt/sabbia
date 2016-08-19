@@ -35,8 +35,8 @@ class PortfolioController extends Controller
         $rules = [
             'title' => 'required',
             'partners' => 'required',
-            'bgImage' => 'mimes:png,jpg,jpeg',
-            'logo' => 'mimes:png,jpg,jpeg',
+            'bgImage' => 'mimes:png,jpg,jpeg,gif',
+            'logo' => 'mimes:png,jpg,jpeg,gif',
             'lastRowTitle' => 'required'
         ];
 
@@ -91,8 +91,8 @@ class PortfolioController extends Controller
         $logo = $request->file('partnerLogo');
         $oldBg = $request->input('partnerBackgroundImage_old');
         $rules = [
-            'partnerBackgroundImage' => 'mimes:png,jpg,jpeg',
-            'partnerLogo' => 'mimes:png,jpg,jpeg',
+            'partnerBackgroundImage' => 'mimes:png,jpg,jpeg,gif',
+            'partnerLogo' => 'mimes:png,jpg,jpeg,gif',
             'partnerContent' => 'required',
             'partnerCompanyName' => 'required'
         ];
@@ -147,8 +147,8 @@ class PortfolioController extends Controller
         $logo = $request->file('partnerLogo');
 
         $rules = [
-            'partnerBackgroundImage' => 'required|mimes:png,jpg,jpeg',
-            'partnerLogo' => 'required|mimes:png,jpg,jpeg',
+            'partnerBackgroundImage' => 'required|mimes:png,jpg,jpeg,gif',
+            'partnerLogo' => 'required|mimes:png,jpg,jpeg,gif',
             'partnerContent' => 'required',
             'partnerCompanyName' => 'required'
         ];

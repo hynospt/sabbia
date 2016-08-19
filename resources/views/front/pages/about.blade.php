@@ -19,79 +19,32 @@ About
 				<hr class="veryThin bg-black wdt-100">
 			</div>
 		</div>
-		<div class="row md-no-margin">
-			<div class="col-md-2 col-xs-12 txtAlgnCenter">
-				<img src="{{url('assets')}}/sabbia/img/karaeng1.png" class="margin-top-10 margin-left-50" />
+
+		@foreach($directors as $index => $director)
+			{{-- */$index ++;/* --}}
+			@if($index % 2 !=0)
+				<div class="row md-no-margin director-row-padding-left margin-bottom-10">
+			@endif
+				<div class="col-md-2 col-xs-12 txtAlgnCenter">
+					<img class="img-responsive" src="{{url('saved_images/directors', $director->photo)}}" class="margin-top-10 margin-left-50" />
+				</div>
+				<div class="col-md-4 col-xs-12 paddingLeftRight40 justifyTxtAlight">
+					<h2 class="txtAlgnCenter director-heading"><b>{{$director->fullname}}</b></h2>
+					<h3 class="director-sub-heading">{{$director->role}}</h3>
+					<h4>
+						{{$director->text}}
+					</h4>
+				</div>	
+			@if($index % 2 == 0)
+				</div>
+			@endif
+		@endforeach
+		@if($index % 2 != 0)
 			</div>
-			<div class="col-md-4 col-xs-12 paddingLeftRight40 justifyTxtAlight">
-				<h2 class="txtAlgnCenter director-heading"><b>Karaeng R. Adjie</b></h2>
-				<h3 class="director-sub-heading">Chief Executive Officer</h3>
-				<h4>
-					A trained chemical engineer, Mr. Adjie is educated in the
-					engineering faculty of the University of Indonesia. A dedicated
-					Problem slayer within the company, Mr. Adjie holds the role in
-					envisioning the company’s grand strategic goals and its
-					execution in ruthless precision. An avid enthusiast of
-					Engineering, Energy and Technology, Mr. Adjie is deeply rooted
-					in the spirit of measurable innovation and drives the delivery of
-					the company’s services with a perpetual sense of
-					continuous-improvement.
-				</h4>
-			</div>	
-			<div class="col-md-2 col-xs-12 txtAlgnCenter padding-md-top-15">
-				<img src="{{url('assets')}}/sabbia/img/faisal1.png" class="margin-top-10 margin-left-50" />
-			</div>
-			<div class="col-md-4 col-xs-12 paddingLeftRight40 justifyTxtAlight">
-				<h2 class="txtAlgnCenter director-heading"><b>M. Faisal Suhaeli Kalla</b></h2>
-				<h3 class="director-sub-heading">Chief Financial Officer</h3>
-				<h4>
-					A wielder of the art of economics, graduated from the University
-					of Indonesia and the University of Queensland in flying colors.
-					Mr. Faisal is responsible to engineer and uphold strategic
-					financial integrity across the company. As a meticulous man of
-					finance, Mr. Faisal presses the delivery of the company’s
-					services through carefully managing financial risks and
-					opportunities from his iron-clad style of financial management.
-				</h4>
-			</div>	
-		</div>
-		
-		<div class="row margin-top-10 md-no-margin">
-			<div class="col-md-2 col-xs-12 txtAlgnCenter padding-md-top-15">
-				<img src="{{url('assets')}}/sabbia/img/febry1.png" class="margin-top-10 margin-left-50" />
-			</div>
-			<div class="col-md-4 col-xs-12 paddingLeftRight40 justifyTxtAlight">
-				<h2 class="txtAlgnCenter director-heading"><b>Akhmad Febry M. Nara</b></h2>
-				<h3 class="director-sub-heading">Business Development Director</h3>
-				<h4>
-					Educated in the art of Law from the university of Trisakti. A
-					formidable lawyer-turned-businessman, Mr. Febry is responsible
-					for developing and seizing strategic partnerships and
-					opportunities to secure sustainable growth across the company.
-					A keen eye for politics and law, Mr. Febry draws his drive to
-					deliver the company’s services by utilizing his talent for
-					negotiation and innate ease of social engagement to sustain the
-					company’s progressive development.
-				</h4>
-			</div>	
-			<div class="col-md-2 col-xs-12 txtAlgnCenter padding-md-top-15">
-				<img src="{{url('assets')}}/sabbia/img/zakaria1.png" class="margin-top-10 margin-left-50" />
-			</div>
-			<div class="col-md-4 col-xs-12 paddingLeftRight40 justifyTxtAlight padding-md-top-15">
-				<h2 class="txtAlgnCenter director-heading"><b>Zakaria Niode</b></h2>
-				<h3 class="director-sub-heading">President Commissioner</h3>
-				<h4>
-					A trained civil engineer and a seasoned businessman, Mr.
-					Zakaria is educated within the walls of the engineering campus
-					of the University of Indonesia. He holds the role as the watchful
-					eye that maintains bird’s eye perspective throughout the
-					company’s operation. As a bearer of wisdom, Mr. Zakaria instills
-					and upholds the company’s culture and morale and is dedicated
-					to help make sure the company runs in its intended tracks.
-				</h4>
-			</div>	
-		</div>
+		@endif
+
 	</div>
+
 	<div class="banner3 row margin-bottom-30 margin-top-10"></div>
 	
 	<div id="glance"class="row">
@@ -119,7 +72,7 @@ About
 			</div>
 			<div class="col-md-12 col-xs-12">
 				<div class="bg-gray margin-top-50 philosophy padding-md-top-15 md-padding-15">
-					<img src="{{url('saved_images/about/philosophy', $about->philosophyImg)}}" class="margin-top-10 margin-right-10 padding-md-right-15"/>
+					<img src="{{url('saved_images/about', $about->philosophyImg)}}" class="margin-top-10 margin-right-10 padding-md-right-15"/>
 					<h4 class="ta-l pos-abs">{{$about->philosophyTitle}}</h4>
 					<h2 class="lg-balancing-philosopy">
 						{{$about->philosophyContent}}

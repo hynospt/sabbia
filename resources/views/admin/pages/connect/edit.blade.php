@@ -34,7 +34,7 @@ Connect Edit
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Page Content</label>
-                    <input class="form-control" id="exampleInputPassword1" placeholder="page content" type="text" name="content" value="{{$connect->content}}">
+                    <textarea name="content">{{$connect->content}}</textarea>
                   </div>
 
                   <div class="box box-default">

@@ -66,6 +66,12 @@ Edit Service Icon
                     </div>
                   </div>
 
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Content</label>
+                      {{ Form::text('title',$icon->title,['class'=>'form-control','placeholder'=>'title']) }}
+                    </div>
+                  </div>
 
                   <div class="col-md-12">
                     <div class="form-group">

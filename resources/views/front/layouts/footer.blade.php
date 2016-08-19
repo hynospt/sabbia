@@ -30,5 +30,5 @@
 </div>
 
 <div class="row backtotop ta-c">
-	<a href="#top"><h3>Back To Top<img src="img/top.png"/></h3></a>
+	<a href="#top"><h3>Back To Top<img src="{{url('assets')}}/sabbia/img/top.png"/></h3></a>
 </div>

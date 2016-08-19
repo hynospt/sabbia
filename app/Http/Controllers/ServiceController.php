@@ -53,6 +53,7 @@ class ServiceController extends Controller
             'bgImage' => 'required|mimes:png,jpg,jpeg',
             'coverImage' => 'required|mimes:png,jpg,jpeg',
             'tag' => 'required',
+            'title' => 'required',
         ];
 
         $validator = Validator::make($request->all() , $rules);
@@ -80,6 +81,7 @@ class ServiceController extends Controller
         $icon->services_id = 1;
 
         $icon->tag = $request->input('tag');
+        $icon->title = $request->input('title');
 
         $icon->save();
         flash('Successfully Created', 'success');
@@ -113,6 +115,7 @@ class ServiceController extends Controller
             'bgImage' => 'mimes:png,jpg,jpeg',
             'coverImage' => 'mimes:png,jpg,jpeg',
             'tag' => 'required',
+            'title' => 'required',
         ];
 
         $validator = Validator::make($request->all() , $rules);
@@ -148,6 +151,7 @@ class ServiceController extends Controller
             $serviceIcon->coverImage = $coverImageFileName;
         }
         $serviceIcon->tag = $request->input('tag');
+        $serviceIcon->title = $request->input('title');
     	$serviceIcon->save();
         flash('Successfully Updated' , 'success');
     	return redirect()->back();

@@ -5,42 +5,47 @@
 @endsection
 
 @section('body')
-<div id="firstPortfolio" class ="portfolio row">
+<div id="firstPortfolio" class ="portfolio row" style="background-image:url('{{url('saved_images/portfolio', $portfolio->bgImage)}}')">
 	<div class="col-md-3 col-xs-12 pull-right margin-top-50 padding-md-top-75">
-		<h1 class="txtAlgnCenter"> Customer Portfolio </h1>
+		<h1 class="txtAlgnCenter"> {{$portfolio->title}} </h1>
 	</div>
-	<img id="portfolioIcon" src="{{url('assets')}}/sabbia/img/sabbia-white.gif" class="wdt-10"/>
+	<img id="portfolioIcon" src="{{url('saved_images/portfolio' , $portfolio->logo)}}" class="wdt-10"/>
 </div>
 
 <div class="row banner1"></div>
 
-<div class="bg-gray row otherPortfolio portfolio">
-	<hr class="thin wdt-25 bg-darkgray pull-left overrideWidth30">
-	<hr class="thin wdt-70 bg-darkgray pull-right">
-	<div class="col-md-3 col-xs-6 txtAlgnCenter">
-		<font class="color-white margin-left-30">01</font>
+@foreach($items as $key => $item)
+	{{-- */ $key ++;/* --}}
+
+	@if($key < 9)
+		{{-- */ $key = '0'.$key ;/* --}}
+	@endif
+	<div class="bg-gray row otherPortfolio portfolio">
+		<hr class="thin wdt-25 bg-darkgray pull-left overrideWidth30">
+		<hr class="thin wdt-70 bg-darkgray pull-right">
+		<div class="col-md-3 col-xs-6 txtAlgnCenter">
+			<font class="color-white margin-left-30">{{$key}}</font>
+		</div>
+
+		<div class="col-md-3 col-xs-6 margin-left-50 txtAlgnCenter">
+			<img src="{{url('saved_images/portfolio/item' , $item->partnerLogo)}}" class="wdt-75 hgt-75 margin-top-30"/>
+		</div>
+
+		<div class="col-md-4 col-xs-12 margin-left-50 txtAlgnCenter padding-md-top-15 padding-md-bottom-15">
+
+		<h1 style="font-size:40px;" class="color-darkgray">{{$item->partnerCompanyName}}</h1>
+			<h2>
+				<i>
+					{{!! $item->partnerContent !!}}
+				</i>
+			</h2>
+		</div>
+		<img class="img-responsive" src ="{{url('saved_images/portfolio/item' , $item->partnerBackgroundImage)}}" >
 	</div>
+@endforeach
 
-	<div class="col-md-3 col-xs-6 margin-left-50 txtAlgnCenter">
-		<img src="{{url('assets')}}/sabbia/img/logo1.png" class="wdt-75 hgt-75 margin-top-30"/>
-	</div>
 
-	<div class="col-md-4 col-xs-12 margin-left-50 txtAlgnCenter padding-md-top-15 padding-md-bottom-15">
-
-	<h1 style="font-size:40px;" class="color-darkgray">PT Hadji Kalla</h1>
-		<h2>
-			<i>
-				Lorem ipsum dolor sit amet, consectetuer
-				adipiscing elit, sed diam nonummy nibh
-				euismod tincidunt ut laoreet dolore magna
-				aliquam erat volutpat.
-			</i>
-		</h2>
-	</div>
-	<img class="img-responsive" src ="{{url('assets')}}/sabbia/img/boatcrop.jpg" >
-</div>
-
-<div class="bg-gray row otherPortfolio portfolio">
+<!-- <div class="bg-gray row otherPortfolio portfolio">
 	<hr class="thin wdt-25 bg-darkgray pull-left overrideWidth30">
 	<hr class="thin wdt-70 bg-darkgray pull-right">
 	<div class="col-md-3 col-xs-6 txtAlgnCenter">
@@ -84,25 +89,18 @@
 		</h2>
 	</div>
 	<img class="img-responsive" src ="{{url('assets')}}/sabbia/img/boatcrop.jpg" >
-</div>
+</div> -->
 
 <div class="bg-gray row portfoliolast">
 	<hr class="thin wdt-25 bg-darkgray pull-left">
 	<hr class="thin wdt-70 bg-darkgray pull-right">
 	<div class="col-md-3 col-xs-12">
-		<h1 style="font-size:80px;color:#fff;">Others</h1>
+		<h1 style="font-size:80px;color:#fff;">{{$portfolio->lastRowTitle}}</h1>
 	</div>
 	<div class="col-md-4 col-xs-12 margin-left-50">
 		<h2>
 			<i>
-				PT Batuhitam Sumber Arta</br>
-				PT Bumi Lintas Tama</br>
-				PT Geokonsultan Solusindo</br>
-				PT Balikpapan Ready Mix Pile</br>
-				PT Nusa Konstruksi Enjiniring, Tbk.</br>
-				PT Poso Energy</br>
-				PT Malea Energy</br>
-				You!
+				{{$portfolio->partners}}
 			</i>
 		</h2>
 	</div>

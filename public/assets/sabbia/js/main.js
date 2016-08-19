@@ -69,65 +69,65 @@ jQuery(document).ready(function ($) {
 	
 
 
-      $('#icon0').on({
-        mouseenter: function () {
-            $("#servicePanel0").css('z-index', 0).animate({
-              bottom:'0'
-            }, 500);
-        },
-        mouseleave: function () {
-            $("#servicePanel0").animate({
-              bottom:'-200px'
-            }, 500);
-        }
-      });
-      $('#icon1').on({
-        mouseenter: function () {
-            $("#servicePanel1").css('z-index', 0).animate({
-              bottom:'0'
-            }, 500);
-        },
-        mouseleave: function () {
-            $("#servicePanel1").animate({
-              bottom:'-200px'
-            }, 500);
-        }
-      });
-      $('#icon2').on({
-        mouseenter: function () {
-            $("#servicePanel2").css('z-index', 0).animate({
-              bottom:'0'
-            }, 500);
-        },
-        mouseleave: function () {
-            $("#servicePanel2").animate({
-              bottom:'-200px'
-            }, 500);
-        }
-      });
-      $('#icon3').on({
-        mouseenter: function () {
-            $("#servicePanel3").css('z-index', 0).animate({
-              bottom:'0'
-            }, 500);
-        },
-        mouseleave: function () {
-            $("#servicePanel3").animate({
-              bottom:'-200px'
-            }, 500);
-        }
-      });
+      // $('#icon0').on({
+      //   mouseenter: function () {
+      //       $("#servicePanel0").css('z-index', 0).animate({
+      //         bottom:'0'
+      //       }, 500);
+      //   },
+      //   mouseleave: function () {
+      //       $("#servicePanel0").animate({
+      //         bottom:'-200px'
+      //       }, 500);
+      //   }
+      // });
+      // $('#icon1').on({
+      //   mouseenter: function () {
+      //       $("#servicePanel1").css('z-index', 0).animate({
+      //         bottom:'0'
+      //       }, 500);
+      //   },
+      //   mouseleave: function () {
+      //       $("#servicePanel1").animate({
+      //         bottom:'-200px'
+      //       }, 500);
+      //   }
+      // });
+      // $('#icon2').on({
+      //   mouseenter: function () {
+      //       $("#servicePanel2").css('z-index', 0).animate({
+      //         bottom:'0'
+      //       }, 500);
+      //   },
+      //   mouseleave: function () {
+      //       $("#servicePanel2").animate({
+      //         bottom:'-200px'
+      //       }, 500);
+      //   }
+      // });
+      // $('#icon3').on({
+      //   mouseenter: function () {
+      //       $("#servicePanel3").css('z-index', 0).animate({
+      //         bottom:'0'
+      //       }, 500);
+      //   },
+      //   mouseleave: function () {
+      //       $("#servicePanel3").animate({
+      //         bottom:'-200px'
+      //       }, 500);
+      //   }
+      // });
 
-      $('#icon4').on({
-        mouseenter: function () {
-            $("#servicePanel4").css('z-index', 0).animate({
-              bottom:'0'
-            }, 500);
-        },
-        mouseleave: function () {
-            $("#servicePanel4").animate({
-              bottom:'-200px'
-            }, 500);
-        }
-      });
+      // $('#icon4').on({
+      //   mouseenter: function () {
+      //       $("#servicePanel4").css('z-index', 0).animate({
+      //         bottom:'0'
+      //       }, 500);
+      //   },
+      //   mouseleave: function () {
+      //       $("#servicePanel4").animate({
+      //         bottom:'-200px'
+      //       }, 500);
+      //   }
+      // });
 });
