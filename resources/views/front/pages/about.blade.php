@@ -5,17 +5,17 @@ About
 @endsection
 
 @section('body')
-	<div id="about" class ="row col-xs-hide">
+	<div id="about" class ="row col-xs-hide" style="background-image:url('{{url('saved_images/about', $about->mainBgImage)}}')">
 		<div class="col-md-3 col-xs-12 pull-right margin-top-50 padding-md-top-75">
-			<h1> manfaat abadi </h1>
+			<h1> {{ $about->mainTag }} </h1>
 		</div>
-			<img id="aboutIcon" src="{{url('assets')}}/sabbia/img/sabbia-white.gif" class="wdt-10"/>
+			<img id="aboutIcon" src="{{url('saved_images/about', $about->mainLogo)}}" class="wdt-10"/>
 	</div>
 
 	<div id="board" class="row">
 		<div class="row md-no-margin">
 			<div class="col-md-4 col-xs-12 margin-top-10 margin-left-50 txtAlgnCenter">
-				<h1 class="margin-top-10">The Board</h1>
+				<h1 class="margin-top-10">{{ $about->titleRow2 }}</h1>
 				<hr class="veryThin bg-black wdt-100">
 			</div>
 		</div>
@@ -96,22 +96,10 @@ About
 	
 	<div id="glance"class="row">
 		<div class="col-md-6 col-xs-12 margin-top-10">
-			<h1 class="margin-top-10">In A Glance</h1>
+			<h1 class="margin-top-10">{{ $about->titleRow3 }}</h1>
 			<hr class="thin bg-gray wdt-75 pull-left">
 			<h2 class="justifyTxtAlight"><i></br></br></br>
-				PT Sabbia Dharma Industries is a downstream oil trading
-				company operating within the area of greater Indonesia.
-				We specialize in providing solutions for businesses in need of
-				quality refined oil supply. Together with our strategic principals,
-				we commit to provide one stop refined oil supply related
-				services for your needs.The scope of our services range from
-				securing quality and cost-friendly sources, logistics and transportation
-				management, and the successful and timely delivery of our products
-				right to your doorstep.</br></br>
-				PT Sabbia Dharma Industries downstream oil division
-				trades under the banner of PT TITAN TUNAS MAJU,
-				a bearer of Izin Niaga Umum (INU) no. 278.K/10.01/DJM.O/2013
-				which endorses legal security in all of our company’s services.
+				{{$about->text2Row2}}
 			</i>
 			</h2>
 		</div>
@@ -119,35 +107,22 @@ About
 		<div class="col-md-6 col-xs-12 xl-padding-left-365 md-padding-left-100">
 			<div class="col-md-12 col-xs-12 margin-top-50 mPadding10p25p">
 				<div id="stories-about" class="">
-					<a href="#" class="color-white">
-						<img src ="{{url('assets')}}/sabbia/img/youtube.png" style="width:8%;height:8%;" class="br-50 margin-right-10"/>Watch Our Story Here!
+					<a href="{{$about->videoUrl1}}" class="color-white">
+						<img src ="{{url('assets')}}/sabbia/img/youtube.png" style="width:8%;height:8%;" class="br-50 margin-right-10"/>{{$about->videoCaption1}}
 					</a>
 					</br>
 					</br>
-					<a href="#" class="color-white">
-						<img src ="{{url('assets')}}/sabbia/img/youtube.png" style="width:8%;height:8%;" class="br-50 margin-right-10"/>Download Company Profile!
+					<a href="{{$about->videoUrl2}}" class="color-white">
+						<img src ="{{url('assets')}}/sabbia/img/youtube.png" style="width:8%;height:8%;" class="br-50 margin-right-10"/>{{$about->videoCaption2}}
 					</a>
 				</div>	
 			</div>
 			<div class="col-md-12 col-xs-12">
 				<div class="bg-gray margin-top-50 philosophy padding-md-top-15 md-padding-15">
-					<img src="{{url('assets')}}/sabbia/img/philo.png" class="margin-top-10 margin-right-10 padding-md-right-15"/>
-					<h4 class="ta-l pos-abs">Sabbia <br/> Philosophy</h4>
+					<img src="{{url('saved_images/about/philosophy', $about->philosophyImg)}}" class="margin-top-10 margin-right-10 padding-md-right-15"/>
+					<h4 class="ta-l pos-abs">{{$about->philosophyTitle}}</h4>
 					<h2 class="lg-balancing-philosopy">
-						Lorem ipsum dolor sit amet,
-						consectetuer adipiscing elit, sed
-						diam nonummy nibh euismod
-						tincidunt ut laoreet dolore magna
-						aliquam erat volutpat. Ut wisi enim
-						ad minim veniam, quis nostrud
-						exerci tation ullamcorper suscipit
-						lobortis nisl ut aliquip ex ea
-						commodo consequat. Duis autem
-						vel eum iriure dolor in hendrerit in
-						vulputate velit esse molestie
-						consequat, vel illum dolore eu
-						feugiat nulla facilisis at vero eros et
-						accumsan et.
+						{{$about->philosophyContent}}
 					</h2>
 				</div>
 			</div>
