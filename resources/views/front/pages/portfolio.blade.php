@@ -100,7 +100,7 @@
 	<div class="col-md-4 col-xs-12 margin-left-50">
 		<h2>
 			<i>
-				{{$portfolio->partners}}
+				{!! $portfolio->partners !!}
 			</i>
 		</h2>
 	</div>

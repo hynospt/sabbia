@@ -33,7 +33,8 @@ Portfolio Edit
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Partner</label>
-                    <input class="form-control" id="exampleInputPassword1" placeholder="page content" type="text" name="partners" value="{{$portfolio->partners}}">
+                    <!-- <input class="form-control" id="exampleInputPassword1" placeholder="page content" type="text" name="partners" value="{{$portfolio->partners}}"> -->
+                    <textarea name="partners">{{$portfolio->partners}}</textarea>
                   </div>
 
                   <div class="col-md-12">
