@@ -9,12 +9,12 @@ Portfolio Edit
     @include('errors.formErrors')
     <section class="content-header">
       <h1>
-        Portfolio Edit
-        <small>Control panel</small>
+        Portfolio
+        <small>Page</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Portfolio Edit</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Portfolio</a></li>
+        <li class="active"> Edit Page</li>
       </ol>
 
       <section class="content">
@@ -22,19 +22,14 @@ Portfolio Edit
           <div class="col-md-6">
             <div class="box box-primary">
               <div class="box-header with-border">
-                <h3 class="box-title">Tier 2</h3>
+                <h3 class="box-title">Tier 1</h3>
               </div>
               <form action="{{action('PortfolioController@update')}}" method="post" name="editPortfolioPageForm" enctype = "multipart/form-data">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="box-body">
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Page Title</label>
+                    <label for="exampleInputPassword1">Heading</label>
                     <input class="form-control" id="exampleInputPassword1" placeholder="page title" type="text" value="{{$portfolio->title}}" name="title">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Partner</label>
-                    <!-- <input class="form-control" id="exampleInputPassword1" placeholder="page content" type="text" name="partners" value="{{$portfolio->partners}}"> -->
-                    <textarea name="partners">{{$portfolio->partners}}</textarea>
                   </div>
 
                   <div class="col-md-12">
@@ -71,10 +66,24 @@ Portfolio Edit
                     </div>
                   </div>
 
+                </div>
+              </div>
                   
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Last Row Title</label>
-                    <input class="form-control" id="exampleInputPassword1" placeholder="page content" type="text" name="lastRowTitle" value="{{$portfolio->lastRowTitle}}">
+                <div class="box box-primary">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">Tier 2</h3>
+                  </div>
+                  <div class="box-body">
+          
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Heading</label>
+                      <input class="form-control" id="exampleInputPassword1" placeholder="page content" type="text" name="lastRowTitle" value="{{$portfolio->lastRowTitle}}">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Partners</label>
+                      <textarea name="partners">{{$portfolio->partners}}</textarea>
+                    </div>
                   </div>
                 </div>
               

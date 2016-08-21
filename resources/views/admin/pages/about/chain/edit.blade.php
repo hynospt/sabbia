@@ -9,12 +9,12 @@ Edit Chain
     @include('errors.formErrors')
     <section class="content-header">
       <h1>
-        Edit Chain
-        <small>Control panel</small>
+        Chain
+        <small>Page</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Edit Chain</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> About</a></li>
+        <li class="active"> Chain</li>
       </ol>
 
       <section class="content">
@@ -23,7 +23,7 @@ Edit Chain
           <div class="col-md-6">
             <div class="box box-primary">
               <div class="box-header with-border">
-                <h3 class="box-title">Edit Chain</h3>
+                <h3 class="box-title">Tier 1</h3>
               </div>
               <form name="editChainFrom" action="{{action('ChainController@update')}}" method="post" enctype="multipart/form-data">
                 <div class="box-body">
@@ -32,36 +32,22 @@ Edit Chain
                   
                   <div class="col-md-12">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Page Title I</label>
+                      <label for="exampleInputEmail1">Heading</label>
                       {{ Form::text('title1', $chain->title1 , ['class' => 'form-control' , 'placeholder' => 'page title']) }}
                     </div>
                   </div>
 
                   <div class="col-md-12">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Content I</label>
+                      <label for="exampleInputEmail1">Detail</label>
                       {{ Form::text('content1', $chain->content1 , ['class' => 'form-control' , 'placeholder' => 'main title']) }}
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Page Title II</label>
-                      {{ Form::text('title2', $chain->title2 , ['class' => 'form-control' , 'placeholder' => 'page title']) }}
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Content II</label>
-                      {{ Form::text('content2', $chain->content2 , ['class' => 'form-control' , 'placeholder' => 'sub title']) }}
                     </div>
                   </div>
 
                   <div class="col-md-12">
                     <div class="box box-default">
                       <div class="box-header with-border">
-                        <h3 class="box-title">Image I</h3>
+                        <h3 class="box-title">Background Image</h3>
                         <div class="box-tools pull-right">
                           <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                         </div><!-- /.box-tools -->
@@ -73,11 +59,32 @@ Edit Chain
                       </div><!-- /.box-body -->
                     </div>
                   </div>
-
+                </div>
+              </div>
+                <div class="box box-primary">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">Tier 2</h3>
+                  </div>
+                
+                  
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Heading</label>
+                      {{ Form::text('title2', $chain->title2 , ['class' => 'form-control' , 'placeholder' => 'page title']) }}
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Detail</label>
+                      {{ Form::text('content2', $chain->content2 , ['class' => 'form-control' , 'placeholder' => 'sub title']) }}
+                    </div>
+                  </div>
+                  
                   <div class="col-md-12">
                     <div class="box box-default">
                       <div class="box-header with-border">
-                        <h3 class="box-title">Image II</h3>
+                        <h3 class="box-title">Background Image</h3>
                         <div class="box-tools pull-right">
                           <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                         </div><!-- /.box-tools -->
@@ -88,17 +95,17 @@ Edit Chain
                         <img src="{{url('saved_images/chain')}}/{{$chain->image2}}">
                       </div><!-- /.box-body -->
                     </div>
-                  </div>  
+                  </div>
 
-                  
-
-                </div>
-                <div class="box-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
                 </div>
               </form>
 
-            </div>
+
+            
+
           </div>
         </div>
          

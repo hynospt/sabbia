@@ -18,7 +18,7 @@
 		<link rel="stylesheet" href="{{url('assets')}}/sabbia/css/style.css">
 		<link rel="stylesheet" href="{{url('assets')}}/sabbia/css/library.css">
 		<link rel="stylesheet" href="{{url('assets')}}/sabbia/css/override.css">
-
+        @yield('customStyle')
     </head>
 
     <body>

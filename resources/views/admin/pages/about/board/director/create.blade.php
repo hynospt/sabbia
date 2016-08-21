@@ -10,10 +10,11 @@ Add Director
     <section class="content-header">
       <h1>
         Add Director
-        <small>Control panel</small>
+        <small>Directors</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i>About</a></li>
+        <li class="active">Director</li>
         <li class="active">Add Director</li>
       </ol>
 
@@ -34,7 +35,7 @@ Add Director
                   <div class="col-md-12">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Fullname</label>
-                      {{ Form::text('fullname',null,['class'=>'form-control','placeholder'=>'fullname']) }}
+                      {{ Form::text('fullname',null,['class'=>'form-control','placeholder'=>'Fullname']) }}
                     </div>
                   </div>
 
@@ -53,7 +54,7 @@ Add Director
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Content</label>
+                      <label for="exampleInputEmail1">Role Detail</label>
                       {{ Form::textarea('text',null,['class'=>'form-control','placeholder'=>'content']) }}
                     </div>
                   </div>

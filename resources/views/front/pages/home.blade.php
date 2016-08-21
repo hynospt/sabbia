@@ -16,10 +16,36 @@ Home
 			</h2>
 			<hr class="wdt-100 pull-left">
 			<div id="watchOurStoryDiv">
-				<a href="{{$home->videoUrl}}" class="color-white" id="watchOurStoryLink">
+				
+				<a type="button" data-toggle="modal" data-target="#myModal" href="#" class="color-white" id="watchOurStoryLink">
 					<img src ="{{url('assets')}}/sabbia/img/youtube-red.jpg" style="width:8%;height:8%;" class="br-50 margin-right-10"/>
 					<i class="whiteTxt">{!! $home->videoText !!}</i>
 				</a>
+
+				{{-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> --}}
+
+				<!-- Modal -->
+				<div id="myModal" class="modal fade" role="dialog">
+				  <div class="modal-dialog">
+
+				    <!-- Modal content-->
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal">&times;</button>
+				        <h4 class="modal-title">Source : </h4>
+				      </div>
+				      <div class="modal-body">
+						<iframe allowfullscreen="" width="100%" frameborder="0" height="100%" src="{{$home->videoUrl}}"></iframe>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				      </div>
+				    </div>
+
+				  </div>
+				</div>
+
+				
 			</div>
 		</div>
 		<div class="col-xl-4 col-md-3 col-xs-12 margin-top-395 margin-left-50 padding-md-bottom-15">

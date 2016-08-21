@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('title')
-Service Icon
+Service Icon Modify
 @endsection
 
 @section('loadCss')
@@ -13,18 +13,18 @@ Service Icon
     @include('errors.formErrors')
     <section class="content-header">
       <h1>
-        Service Icon
-        <small>Control panel</small>
+        Service
+        <small>Modify</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Edit Service Icon Page</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Services</a></li>
+        <li class="active"> Modify Service</li>
       </ol>
 
       <section class="content">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Table With Full Features</h3>
+              <h3 class="box-title">Data Table Service</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -46,8 +46,8 @@ Service Icon
                 @foreach($icons as $icon)
                   <tr>
                     <td>{{$index++}}</td>
-                    <td>{{$icon->bgImage}}</td>
-                    <td>{{$icon->coverImage}}</td>
+                    <td><img class="img-responsive" height="300" src="{{url('saved_images/services', $icon->bgImage)}}"></td>
+                    <td><img class="img-responsive" height="300" src="{{url('saved_images/services', $icon->coverImage)}}"></td>
                     <td>{{$icon->tag}}</td>
                     <td>{{$icon->created_at}}</td>
                     <td>{{$icon->updated_at}}</td>

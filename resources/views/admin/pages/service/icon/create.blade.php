@@ -9,12 +9,12 @@ Create Service Icon Page
     @include('errors.formErrors')
     <section class="content-header">
       <h1>
-        Create Service Icon Page
-        <small>Control panel</small>
+        Service
+        <small>Service</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Create Service Icon Page</li>
+        <li class="active">Add Service</li>
       </ol>
 
       <section class="content">
@@ -23,7 +23,7 @@ Create Service Icon Page
           <div class="col-md-6">
             <div class="box box-primary">
               <div class="box-header with-border">
-                <h3 class="box-title">Add Service Icon</h3>
+                <h3 class="box-title">Add Service</h3>
               </div>
               
               <form name="addServiceIconForm" action="{{action('ServiceController@store')}}" method="post" enctype="multipart/form-data">
@@ -45,13 +45,13 @@ Create Service Icon Page
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Title</label>
+                      <label for="exampleInputEmail1">Heading</label>
                       {{ Form::text('title',null,['class'=>'form-control','placeholder'=>'title']) }}
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Content</label>
+                      <label for="exampleInputEmail1">Service Detail</label>
                       {{ Form::textarea('tag',null,['class'=>'form-control','placeholder'=>'tag']) }}
                     </div>
                   </div>
