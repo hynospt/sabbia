@@ -31,7 +31,7 @@
 							<div class="col-xs-12 lg-no-padding">
 								<hr class="service-tag-line">
 							</div>
-							<h2>{{$item->tag}}
+							<h2>{!! $item->tag !!}
 							</h2>
 						</div>
 					</div>

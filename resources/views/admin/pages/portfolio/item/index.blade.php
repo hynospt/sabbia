@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('title')
-Home
+Portfolio
 @endsection
 
 @section('loadCss')
@@ -13,17 +13,17 @@ Home
     @include('errors.formErrors')
     <section class="content-header">
       <h1>
-        Home
-        <small>Control panel</small>
+        Portfolio
+        <small>Modify</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Homepage</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Portfolio</a></li>
+        <li class="active"> Modify Portfolio</li>
       </ol>
       <section class="content">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Table With Full Features</h3>
+              <h3 class="box-title">Portfolio Data Table</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -34,8 +34,8 @@ Home
                   <th>Logo</th>
                   <th>Background Image</th>
                   <th>Company Name</th>
-                  <th>Content</th>
-                  <th>Created</th>
+                  <th>Detail</th>
+                  {{-- <th>Created</th> --}}
                   <th>Updated</th>
                   <th>Action</th>
                 </tr>
@@ -46,11 +46,11 @@ Home
                 @foreach($items as $item)
                   <tr>
                     <td>{{$index++}}</td>
-                    <td>{{$item->partnerLogo}}</td>
-                    <td>{{$item->partnerBackgroundImage}}</td>
+                    <td><img class="img-responsive" height="300" src="{{url('saved_images/portfolio' , $item->partnerLogo)}}"></td>
+                    <td><img class="img-responsive" height="300" src="{{url('saved_images/portfolio' , $item->partnerBackgroundImage)}}"></td>
                     <td>{{$item->partnerCompanyName}}</td>
                     <td>{{$item->partnerContent}}</td>
-                    <td>{{$item->created_at}}</td>
+                    {{-- <td>{{$item->created_at}}</td> --}}
                     <td>{{$item->updated_at}}</td>
                     <td>
                       <a href="{{ action('PortfolioController@item_edit' , $item->id) }}"><button type="button" class="btn btn-warning">Edit</button></a>

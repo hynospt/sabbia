@@ -10,11 +10,11 @@ Edit Home
     <section class="content-header">
       <h1>
         Home
-        <small>Control panel</small>
+        <small>Page</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Homepage</li>
+        <li class="active">Edit Homepage</li>
       </ol>
 
       <section class="content">
@@ -117,52 +117,70 @@ Edit Home
         </div>
 
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-12">
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title">Tier 2</h3>
               </div>
               <div class="box-body">
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Product Price</label>
-                  <input class="form-control" id="exampleInputPassword1" placeholder="product price" type="text" name="productPrice" value="{{$home->productPrice}}">
-                </div>
-
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Product Name</label>
-                  <input class="form-control" id="exampleInputPassword1" placeholder="product name" type="text" value="{{$home->productName}}" name="productName">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Product Price</label>
+                    <input class="form-control" id="exampleInputPassword1" placeholder="product price" type="text" name="productPrice" value="{{$home->productPrice}}">
+                  </div>
                 </div>
                 
-                <div class="form-group">
-                  <label for="exampleInputPassword1">unit type</label>
-                  <input class="form-control" id="exampleInputPassword1" placeholder="unit type" type="text" name="unitType" value="{{$home->unitType}}">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Product Name</label>
+                    <input class="form-control" id="exampleInputPassword1" placeholder="product name" type="text" value="{{$home->productName}}" name="productName">
+                  </div>  
                 </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">text 1 row 2</label>
-                  <textarea class="form-control" id="exampleInputPassword1" placeholder="caption" name="text1Row2" type="text">{{$home->text1Row2}}</textarea>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">text 2 row 2</label>
-                  <textarea class="form-control" id="exampleInputPassword1" placeholder="caption" name="text2Row2" type="text">{{$home->text2Row2}}</textarea>
-                </div>
-                <div class="form-group">
-                  <!-- <label for="exampleInputPassword1">bg img 2</label> -->
-                  <input class="form-control" id="exampleInputPassword1" name="oldImgBgRow2" placeholder="caption" type="hidden" value="{{$home->bgImageRow2}}">
-                      
-                  <div class="box box-default">
-                    <div class="box-header with-border">
-                      <h3 class="box-title">Background Image</h3>
-                      <div class="box-tools pull-right">
-                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                      </div><!-- /.box-tools -->
-                    </div><!-- /.box-header -->
-                    <div class="box-body txt-center">
-                      <input class="" id="exampleInputPassword1" placeholder="bg img 1" name="bgImageRow2" type="file" value="">
-                      <br/>
-                      <img class="img-responsive" src="{{url('saved_images/home')}}/{{$home->bgImageRow2}}">
-                    </div><!-- /.box-body -->
+                
+                
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Unit Type</label>
+                    <input class="form-control" id="exampleInputPassword1" placeholder="unit type" type="text" name="unitType" value="{{$home->unitType}}">
                   </div>
+                </div>
 
+                <div class="col-md-6">
+                  <div class="form-group">
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input class="form-control" id="exampleInputPassword1" name="oldImgBgRow2" placeholder="caption" type="hidden" value="{{$home->bgImageRow2}}">
+                    <div class="box box-default">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Background Image</h3>
+                        <div class="box-tools pull-right">
+                          <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div><!-- /.box-tools -->
+                      </div><!-- /.box-header -->
+                      <div class="box-body txt-center">
+                        <input class="" id="exampleInputPassword1" placeholder="bg img 1" name="bgImageRow2" type="file" value="">
+                        <br/>
+                        <img class="img-responsive" src="{{url('saved_images/home')}}/{{$home->bgImageRow2}}">
+                      </div><!-- /.box-body -->
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Caption Detail Left</label>
+                    <textarea class="form-control" id="exampleInputPassword1" placeholder="caption" name="text1Row2" type="text">{{$home->text1Row2}}</textarea>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Caption Detail Right</label>
+                    <textarea class="form-control" id="exampleInputPassword1" placeholder="caption" name="text2Row2" type="text">{{$home->text2Row2}}</textarea>
+                  </div>
                 </div>
               </div>
               <div class="box-footer">
@@ -171,32 +189,36 @@ Edit Home
             </div>
           </div>
 
-          <div class="col-md-6">
+          <div class="col-md-12">
             <div class="box box-primary">
               <div class="box-header with-border">
                 <h3 class="box-title">Tier 3</h3>
               </div>
               <div class="box-body">
-                <div class="form-group">
-                  <input class="form-control" id="exampleInputPassword1" name="oldportfolio" placeholder="caption" type="hidden" value="{{$home->portfolioImage}}">
-                  <div class="box box-default">
-                    <div class="box-header with-border">
-                      <h3 class="box-title">Portfolio Image</h3>
-                      <div class="box-tools pull-right">
-                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                      </div><!-- /.box-tools -->
-                    </div><!-- /.box-header -->
-                    <div class="box-body txt-center">
-                      <input id="exampleInputPassword1" name="portfolioImage" type="file" value="">
-                      <br/>
-                      <img class="img-responsive" src="{{url('saved_images/home')}}/{{$home->portfolioImage}}">
-                    </div><!-- /.box-body -->
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input class="form-control" id="exampleInputPassword1" name="oldportfolio" placeholder="caption" type="hidden" value="{{$home->portfolioImage}}">
+                    <div class="box box-default">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">Portfolio Image</h3>
+                        <div class="box-tools pull-right">
+                          <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        </div><!-- /.box-tools -->
+                      </div><!-- /.box-header -->
+                      <div class="box-body txt-center">
+                        <input id="exampleInputPassword1" name="portfolioImage" type="file" value="">
+                        <br/>
+                        <img class="img-responsive" src="{{url('saved_images/home')}}/{{$home->portfolioImage}}">
+                      </div><!-- /.box-body -->
+                    </div>
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Portfolio Tag</label>
-                  <textarea class="form-control" id="exampleInputPassword1" placeholder="caption" name="portfolioTag" type="text">{{$home->portfolioTag}}</textarea>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Portfolio Detail</label>
+                    <textarea class="form-control" id="exampleInputPassword1" placeholder="caption" name="portfolioTag" type="text">{{$home->portfolioTag}}</textarea>
+                  </div>
                 </div>
               </div>
               <div class="box-footer">
@@ -206,6 +228,7 @@ Edit Home
               </form>
             </div>
           </div>
+
         </div>
       </section>
     </section>

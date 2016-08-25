@@ -9,12 +9,12 @@ Edit Service Page
     @include('errors.formErrors')
     <section class="content-header">
       <h1>
-        Edit Service Page
-        <small>Control panel</small>
+        Service
+        <small>Page</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Edit Service Page</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i>Services</a></li>
+        <li class="active">Edit Page</li>
       </ol>
 
       <section class="content">
@@ -29,11 +29,11 @@ Edit Service Page
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="box-body">
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Page Title</label>
+                    <label for="exampleInputPassword1">Heading</label>
                     <input class="form-control" id="exampleInputPassword1" placeholder="page title" type="text" value="{{$service->title}}" name="title">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Subtitle</label>
+                    <label for="exampleInputPassword1">Subheading</label>
                     <input class="form-control" id="exampleInputPassword1" placeholder="page content" type="text" name="subTitle" value="{{$service->subTitle}}">
                   </div>
               <div class="box-footer">

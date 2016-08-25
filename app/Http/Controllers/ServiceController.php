@@ -38,8 +38,8 @@ class ServiceController extends Controller
             flash('Oops, Something Went Wrong!', 'danger');
             return redirect()->back()->withInput()->withErrors($update);
         }
-            flash("Successfully Updated", 'success');
-            return redirect()->back();
+        flash("Successfully Updated", 'success');
+        return redirect()->back();
     }
 
     public function store(Request $request){
@@ -47,7 +47,6 @@ class ServiceController extends Controller
         $path = public_path('saved_images/services');
         $bgImage = $request->file('bgImage');
         $coverImage = $request->file('coverImage');
-
 
         $rules = [
             'bgImage' => 'required|mimes:png,jpg,jpeg',
