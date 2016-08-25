@@ -51,19 +51,27 @@
 
 @section('customScript')
 	<script type="text/javascript">
+
 		@foreach($items as $key => $item)
-			$('#icon{{$key}}').on({
+			$('#servicePanel{{$key}}').css('opacity', 0);
+			$('#icon{{$key}} .service-panel').on({
 		        mouseenter: function () {
 		            $("#servicePanel{{$key}}").css('z-index', 0).animate({
-		              bottom:'0'
-		            }, 500);
-		        },
-		        mouseleave: function () {
-		            $("#servicePanel{{$key}}").animate({
-		              bottom:'-200px'
-		            }, 500);
+		              bottom:'0',
+		              opacity:'1'
+		            }, 50);
 		        }
 		  	});
+
+			$('#icon{{$key}}').on({
+		  		mouseleave: function () {
+		            $("#servicePanel{{$key}}").animate({
+		              bottom:'-200px',
+		              opacity:'0'
+		            }, 50);
+		        }
+		  	});
+		        
 		@endforeach
 	</script>
 @endsection

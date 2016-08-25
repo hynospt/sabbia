@@ -73,8 +73,8 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{url('service/edit')}}"><i class="fa fa-pencil-square-o"></i> Edit Page</a></li>
-            <li><a href="{{url('service/icon/create')}}"><i class="fa fa-plus"></i> Add Service Icon</a></li>
-            <li><a href="{{url('service/icon')}}"><i class="fa fa-pencil-square-o"></i> Edit Service Icon</a></li>
+            <li><a href="{{url('service/icon/create')}}"><i class="fa fa-plus"></i> Add Service</a></li>
+            <li><a href="{{url('service/icon')}}"><i class="fa fa-pencil-square-o"></i> Modify Service</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -88,7 +88,7 @@
           <ul class="treeview-menu">
             <li><a href="{{url('portfolio/edit')}}"><i class="fa fa-pencil-square-o"></i> Edit Page</a></li>
             <li><a href="{{url('portfolio/item/create')}}"><i class="fa fa-plus"></i> Add Portfolio</a></li>
-            <li><a href="{{url('portfolio/item')}}"><i class="fa fa-pencil-square-o"></i> Edit Portfolio</a></li>
+            <li><a href="{{url('portfolio/item')}}"><i class="fa fa-pencil-square-o"></i> Modify Portfolio</a></li>
           </ul>
         </li>
         <li class="treeview">
