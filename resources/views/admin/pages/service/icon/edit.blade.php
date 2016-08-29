@@ -44,7 +44,7 @@ Edit Service Icon
                         <input class="" name="bgImage" type="file">
                         <input type="hidden" name="bgImage_old" value="{{$icon->bgImage}}"/>
                         <br/>
-                        <img src="{{url('saved_images/services')}}/{{$icon->bgImage}}">
+                        <img class="img-responsive" src="{{url('saved_images/services')}}/{{$icon->bgImage}}">
                       </div><!-- /.box-body -->
                     </div>
                   </div>
@@ -61,21 +61,21 @@ Edit Service Icon
                         <input class="" name="coverImage" type="file">
                         <input type="hidden" name="coverImage_old" value="{{$icon->coverImage}}"/>
                         <br/>
-                        <img src="{{url('saved_images/services')}}/{{$icon->coverImage}}">
+                        <img class="img-responsive" src="{{url('saved_images/services')}}/{{$icon->coverImage}}">
                       </div><!-- /.box-body -->
                     </div>
                   </div>
 
                   <div class="col-md-12">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Content</label>
+                      <label for="exampleInputEmail1">Heading</label>
                       {{ Form::text('title',$icon->title,['class'=>'form-control','placeholder'=>'title']) }}
                     </div>
                   </div>
 
                   <div class="col-md-12">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Content</label>
+                      <label for="exampleInputEmail1">Detail</label>
                       {{ Form::textarea('tag',$icon->tag,['class'=>'form-control','placeholder'=>'tag']) }}
                     </div>
                   </div>

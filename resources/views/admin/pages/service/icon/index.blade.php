@@ -35,7 +35,6 @@ Service Icon Modify
                   <th>Background Image</th>
                   <th>Cover Image</th>
                   <th>Tag</th>
-                  <th>Created</th>
                   <th>Updated</th>
                   <th>Action</th>
                 </tr>
@@ -48,10 +47,9 @@ Service Icon Modify
                     <td>{{$index++}}</td>
                     <td><img class="img-responsive" height="300" src="{{url('saved_images/services', $icon->bgImage)}}"></td>
                     <td><img class="img-responsive" height="300" src="{{url('saved_images/services', $icon->coverImage)}}"></td>
-                    <td>{{$icon->tag}}</td>
-                    <td>{{$icon->created_at}}</td>
+                    <td>{!! $icon->tag !!}</td>
                     <td>{{$icon->updated_at}}</td>
-                    <td>
+                    <td style="display:inline-flex">
                       <a href="{{ action('ServiceController@icon_edit' , $icon->id) }}"><button type="button" class="btn btn-warning">Edit</button></a>
                       
                       <a href="{{ action('ServiceController@icon_delete', $icon->id)}}"><button type="button" class="btn btn-danger">Delete</button></a>

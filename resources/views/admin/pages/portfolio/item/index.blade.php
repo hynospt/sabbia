@@ -49,7 +49,7 @@ Portfolio
                     <td><img class="img-responsive" height="300" src="{{url('saved_images/portfolio' , $item->partnerLogo)}}"></td>
                     <td><img class="img-responsive" height="300" src="{{url('saved_images/portfolio' , $item->partnerBackgroundImage)}}"></td>
                     <td>{{$item->partnerCompanyName}}</td>
-                    <td>{{$item->partnerContent}}</td>
+                    <td>{!! $item->partnerContent !!}</td>
                     {{-- <td>{{$item->created_at}}</td> --}}
                     <td>{{$item->updated_at}}</td>
                     <td>

@@ -11,7 +11,7 @@
 			<hr class="wdt-100 pull-left" style="border-top:1px solid #000">
 			<h2 class="main-text" >
 			<i class="whiteTxt" style="color:#878888">
-				{{$connect->content}}
+				{!! $connect->content !!}
 			</i>
 			</h2>
 		</div>

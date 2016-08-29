@@ -32,7 +32,7 @@ About
 					<h2 class="txtAlgnCenter director-heading"><b>{{$director->fullname}}</b></h2>
 					<h3 class="director-sub-heading">{{$director->role}}</h3>
 					<h4>
-						{{$director->text}}
+						{!! $director->text !!}
 					</h4>
 				</div>	
 			@if($index % 2 == 0)
